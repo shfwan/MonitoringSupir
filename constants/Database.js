@@ -18,4 +18,3 @@ const supirData = [
         phoneNumber: "08423459870"
     },
 ]
-
