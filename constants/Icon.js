@@ -1,20 +1,37 @@
+import Account from '../assets/SVG/iconAccount.svg'
+import ArrowLeft from '../assets/SVG/iconArrowLeft.svg'
+import ArrowRight from '../assets/SVG/iconArrowRight.svg'
+import Data from '../assets/SVG/iconData.svg'
+import Delete from '../assets/SVG/iconDelete.svg'
+import Edit from '../assets/SVG/iconEdit.svg'
+import Hadir from '../assets/SVG/iconHadir.svg'
+import Home from '../assets/SVG/iconHome.svg'
+import Izin from '../assets/SVG/iconIzin.svg'
+import Lock from '../assets/SVG/iconLock.svg'
+import Notif from '../assets/SVG/iconNotif.svg'
+import Plus from '../assets/SVG/iconPlus.svg'
+import Sakit from '../assets/SVG/iconSakit.svg'
+import Search from '../assets/SVG/iconSearch.svg'
+import Statistik from '../assets/SVG/iconStatistik.svg'
+import Waktu from '../assets/SVG/iconWaktu.svg'
+
 const Icon = {
-    Account: require('../assets/SVG/iconAccount.svg'),
-    ArrowLeft: require('../assets/SVG/iconArrowLeft.svg'),
-    ArrowRight: require('../assets/SVG/iconArrowRight.svg'),
-    Data: require('../assets/SVG/iconData.svg'),
-    Delete: require('../assets/SVG/iconDelete.svg'),
-    Edit: require('../assets/SVG/iconEdit.svg'),
-    Hadir: require('../assets/SVG/iconHadir.svg'), 
-    Hom: require('../assets/SVG/iconHome.svg'),
-    Izin: require('../assets/SVG/iconIzin.svg'),
-    Lock: require('../assets/SVG/iconLock.svg'),
-    Notif: require('../assets/SVG/iconNotif.svg'),
-    Plus: require('../assets/SVG/iconPlus.svg') ,
-    Saki: require('../assets/SVG/iconSakit.svg'),
-    Search: require('../assets/SVG/iconSearch.svg'),
-    Statisti: require('../assets/SVG/iconStatistik.svg'),
-    Waktu: require('../assets/SVG/iconWaktu.svg')
+    Account: Account,
+    ArrowLeft: ArrowLeft,
+    ArrowRight: ArrowRight,
+    Data: Data,
+    Delete: Delete,
+    Edit: Edit,
+    Hadir: Hadir, 
+    Home: Home,
+    Izin: Izin,
+    Lock: Lock,
+    Notif: Notif,
+    Plus: Plus,
+    Sakit: Sakit,
+    Search: Search,
+    Statistik: Statistik,
+    Waktu: Waktu,
 }
 
 export default Icon
