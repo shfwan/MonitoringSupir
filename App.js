@@ -1,15 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Color from './constants/Color';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {NavigationContainer} from '@react-navigation/native'
+import AppNavigation from './navigation/AppNavigation';
+import { View } from 'react-native';
+import {useFonts} from 'expo-font'
+import React, {useCallback} from 'react';
+import AllDataScreens from './screens/AllDataScreens';
 
-
+const Stack = createNativeStackNavigator()
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    regular : require("./assets/fonts/Poppins-Regular.ttf"),
+    light : require("./assets/fonts/Poppins-Light.ttf"),
+    bold: require("./assets/fonts/Poppins-Bold.ttf"),
+    semibold : require("./assets/fonts/Poppins-SemiBold.ttf"),
+    medium : require("./assets/fonts/Poppins-Medium.ttf"),
+    extrabold : require("./assets/fonts/Poppins-ExtraBold.ttf"),
+  })
+  const onLayoutRootView = useCallback(async()=> {
+    if(fontsLoaded){
+      await SplashScreen.hideAsync();
+    }
+  },[fontsLoaded]);
+
+if(!fontsLoaded){
+  return null;
+}
   return (
-    <View className="flex-1 bg-white items-center justify-center" >
-      {/* <Home /> */}
-      <Text className="italic" style={{color: Color.Hijau}}>Ongko</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AllDataScreens/>
   );
 }
 

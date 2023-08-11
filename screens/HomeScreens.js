@@ -1,8 +1,8 @@
 import { View, Text } from "react-native"
-import Color from "../constants/Color"
+import Color, { COLORS } from "../constants/Color"
 import { useEffect } from "react"
 
-const Home = () => {
+const HomeScreens = () => {
     
     // const apiData = () => {
     //     useEffect(() => {
@@ -22,9 +22,9 @@ const Home = () => {
 
     return(
         <View >
-            <Text style={{color: Color.Merah}}>Ongko</Text>
+            <Text style={{color:COLORS.Hijau}}>Ongko</Text>
         </View>
     )
 }
 
-export default Home
+export default HomeScreens
