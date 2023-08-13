@@ -3,7 +3,7 @@ const Color = {
     AbuAbu: "#464646",
     Putih : "#FFFFFF",
     Merah : "#FF0B0B",
-    BG: "#F3F3"
+    Background: "#F3F3F3"
 }
 
 export default Color

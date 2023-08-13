@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import {useFonts} from 'expo-font'
 import React, {useCallback} from 'react';
 import AllDataScreens from './screens/AllDataScreens';
+import { LoginScreens } from './screens/LoginScreens';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -26,7 +27,7 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    <AllDataScreens/>
+    <LoginScreens/>
   );
 }
 
