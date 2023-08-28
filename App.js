@@ -6,6 +6,13 @@ import {useFonts} from 'expo-font'
 import React, {useCallback} from 'react';
 import AllDataScreens from './screens/AllDataScreens';
 import { LoginScreens } from './screens/LoginScreens';
+import HistoryScreens from './screens/HistoryScreens';
+import { AddKendaraan } from './screens/AddKendaraan';
+import { AddSupir } from './screens/AddSupir';
+import Contoh from './screens/Contoh';
+import MainNavigator from './navigation/MainNavigator'
+import { TabContextProvider } from './context/TabContext';
+import { ButtonBack } from './components/ButtonBack';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -27,7 +34,22 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    <LoginScreens/>
+    // <Contoh/>
+    <TabContextProvider>
+    <NavigationContainer>
+      <Stack.Navigator 
+      initialRouteName='AppNavigation'
+      screenOptions={{headerShown:false}}
+      >
+        <Stack.Screen
+        name='AppNavigation'
+        component={AppNavigation}
+        />
+        <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
+        <Stack.Screen name='Supir' component={AddSupir}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    </TabContextProvider>
   );
 }
 

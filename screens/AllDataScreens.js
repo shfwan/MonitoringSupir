@@ -4,7 +4,7 @@ import Color from '../constants/Color'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Search from '../assets/SVG/iconSearch.svg'
-import { Categories } from '../constants/Categories'
+import { CategoriesAllData } from '../constants/Categories'
 import { widthPercentageToDP as wp , heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 export default function AllDataScreens () {
@@ -37,7 +37,7 @@ export default function AllDataScreens () {
         <FlatList 
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={Categories}
+            data={CategoriesAllData}
             keyExtractor={item=> item.id}
             className="overflow-visible"
             renderItem={({item})=>{

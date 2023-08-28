@@ -1,20 +1,45 @@
-const supirData = [
+export const DataKendaraan = [
     {
-        id: 1,
-        nama: "Shafwan M Nurlette",
-        alamat: "Galunggung",
-        phoneNumber: "081218987160"
+        title:'Kendaraan',
+        placeholder:'Masukan Kendaraan'
     },
     {
-        id: 2,
-        nama: "Mingki",
-        alamat: "Poka",
-        phoneNumber: "08231487160"
+        title:'Plat Nomor',
+        placeholder:'Masukkan Plat Nomor'
     },
     {
-        id: 3,
-        nama: "Ongko",
-        alamat: "Wayame",
-        phoneNumber: "08423459870"
+        title:'Jenis',
+        placeholder:'Masukkan Jenis'
+    },
+    {
+        title:'Merk',
+        placeholder:'Masukkan Merk'
+    },
+    {
+        title:'Warna',
+        placeholder:'Masukkan Warna'
+    },
+]
+
+export const DataSupir = [
+    {
+        title:'Nama Lengkap',
+        placeholder:'Masukkan Nama Lengkap'
+    },
+    {
+        title:'NIK/NIP',
+        placeholder:'Masukkan NIK/NIP'
+    },
+    {
+        title:'E-mail',
+        placeholder:'Masukkan email'
+    },
+    {
+        title:'No HP',
+        placeholder:'Masukkan Nomor HP'
+    },
+    {
+        title:'Alamat',
+        placeholder:'Masukkan Alamat'
     },
 ]

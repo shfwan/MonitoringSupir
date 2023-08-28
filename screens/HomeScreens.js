@@ -22,7 +22,7 @@ const HomeScreens = () => {
 
     return(
         <View >
-            <Text style={{color:COLORS.Hijau}}>Ongko</Text>
+            <Text>Ongko</Text>
         </View>
     )
 }

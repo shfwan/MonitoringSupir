@@ -25,7 +25,7 @@ export const LoginScreens = () => {
     >
       <StatusBar/>
       <SafeAreaView className="flex mt-12">
-      <View className="relative flex-col items-center">
+      <View className="relative flex-col items-center mt-5">
         <LogoMobil/>
         <LogoText/>
       </View>
@@ -36,28 +36,30 @@ export const LoginScreens = () => {
     >
       <Text style={{fontFamily:'semibold', fontSize:28}} className="text-center mt-4">Selamat Datang</Text>
       {/* Form Login */}
-      <View className="form space-y-2 mt-8 ">
+      <View className="form space-y-2 mt-7">
         {/* Username */}
         <Text style={{fontFamily:'regular', fontSize:18}} className="ml-4">Username</Text>
         <View
-        className=" form flex-row p-3 pl-4 border opacity-50 mx-4 rounded-xl"
+        className=" form flex-row p-3 pl-4 border  mx-4 rounded-xl"
         style={{borderColor:Color.AbuAbu}}
         >
-          <Account/>
+          <Account
+          stroke={Color.Hitam}
+          />
           <TextInput
           className="mx-2"
           placeholder='username'
           placeholderTextColor={Color.AbuAbu}
-          style={{fontFamily:'regular', fontSize:16, width:'100%'}}
+          style={{fontFamily:'regular', width:'100%'}}
           keyboardType='email-address'
           />
 
         
         </View>
         {/* Password */}
-        <Text style={{fontFamily:'regular', fontSize:18}} className="ml-4 ">Password</Text>
+        <Text style={{fontFamily:'regular', fontSize:18, paddingTop:20}} className="ml-4">Password</Text>
         <View
-        className=" form flex-row p-3 pl-4 border opacity-50 mx-4 shadow-gray-950 shadow-sm rounded-xl relative "
+        className=" form flex-row p-3 pl-4 border  mx-4 rounded-xl relative mb-5"
         style={{borderColor:Color.AbuAbu}}
         >
           <Lock/>
@@ -65,7 +67,7 @@ export const LoginScreens = () => {
           className="mx-2"
           placeholder='Password'
           placeholderTextColor={Color.AbuAbu}
-          style={{fontFamily:'regular', fontSize:16, width:'100%', color:'#000000h'}}
+          style={{fontFamily:'regular', fontSize:16, width:'100%', color:'#000000'}}
           secureTextEntry={isPasswordShown}
           />
           <TouchableOpacity
@@ -80,7 +82,7 @@ export const LoginScreens = () => {
           </TouchableOpacity>
 
         </View>
-        <TouchableOpacity className="py-3 rounded-xl mx-4 " style={{backgroundColor:Color.Hijau}}>
+        <TouchableOpacity className="py-3 rounded-xl mx-4" style={{backgroundColor:Color.Hijau}}>
           <Text style={{color:Color.Putih, fontFamily:'semibold', fontSize:18}} className="text-center">Login</Text>
         </TouchableOpacity>
         
