@@ -47,8 +47,8 @@ export default function AllDataScreens () {
                 <TouchableOpacity 
                 onPress={()=> setActiveCategory(item.id)}
                 style={{backgroundColor: isActive? Color.Hijau: Color.Putih, borderColor:isActive? Color.Putih : Color.Hijau}} 
-                className="border p-3 px-2 mr-2 rounded-xl shadow items-center" >
-                  <Text style={{width:wp(24), height:wp(4), textAlign:'center', fontFamily:isActive? 'semibold' : 'regular'}} className={activeTextClass}>{item.title}</Text>
+                className="border px-5 py-5 w  mr-2 rounded-xl shadow items-center" >
+                  <Text style={{ textAlign:'center', fontFamily:isActive? 'semibold' : 'regular'}} className={activeTextClass}>{item.title}</Text>
                 </TouchableOpacity>
               )
             }}

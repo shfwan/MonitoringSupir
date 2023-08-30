@@ -9,7 +9,6 @@ import { LoginScreens } from './screens/LoginScreens';
 import HistoryScreens from './screens/HistoryScreens';
 import { AddKendaraan } from './screens/AddKendaraan';
 import { AddSupir } from './screens/AddSupir';
-import Contoh from './screens/Contoh';
 import MainNavigator from './navigation/MainNavigator'
 import { TabContextProvider } from './context/TabContext';
 import { ButtonBack } from './components/ButtonBack';
@@ -34,7 +33,7 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    // <Contoh/>
+    
     <TabContextProvider>
     <NavigationContainer>
       <Stack.Navigator 
