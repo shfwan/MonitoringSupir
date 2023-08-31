@@ -12,6 +12,20 @@ export const CategoriesAllData = [
       title: "User",
     },
   ]
+export const CategoriesAllHistory = [
+    {
+      id: 1,
+      title: "Hadir",
+    },
+    {
+      id: 2,
+      title: "Sakit",
+    },
+    {
+      id: 3,
+      title: "Izin",
+    },
+  ]
 
   export const CategoryHistory = [
     {
