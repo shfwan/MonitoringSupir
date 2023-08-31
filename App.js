@@ -12,6 +12,7 @@ import { AddSupir } from './screens/AddSupir';
 import MainNavigator from './navigation/MainNavigator'
 import { TabContextProvider } from './context/TabContext';
 import { ButtonBack } from './components/ButtonBack';
+import CardSupir from './components/CardSupir';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -33,22 +34,22 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    
-    <TabContextProvider>
-    <NavigationContainer>
-      <Stack.Navigator 
-      initialRouteName='AppNavigation'
-      screenOptions={{headerShown:false}}
-      >
-        <Stack.Screen
-        name='AppNavigation'
-        component={AppNavigation}
-        />
-        <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
-        <Stack.Screen name='Supir' component={AddSupir}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-    </TabContextProvider>
+    <CardSupir/>
+    // <TabContextProvider>
+    // <NavigationContainer>
+    //   <Stack.Navigator 
+    //   initialRouteName='AppNavigation'
+    //   screenOptions={{headerShown:false}}
+    //   >
+    //     <Stack.Screen
+    //     name='AppNavigation'
+    //     component={AppNavigation}
+    //     />
+    //     <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
+    //     <Stack.Screen name='Supir' component={AddSupir}/>
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    // </TabContextProvider>
   );
 }
 
