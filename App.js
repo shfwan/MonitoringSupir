@@ -41,8 +41,8 @@ if(!fontsLoaded){
       screenOptions={{headerShown:false}}
       >
         <Stack.Screen
-        name='AppNavigation'
-        component={AppNavigation}
+          name='AppNavigation'
+          component={AppNavigation}
         />
         <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
         <Stack.Screen name='Supir' component={AddSupir}/>
