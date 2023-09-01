@@ -1,7 +1,8 @@
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
-import IconArrowRight from '../assets/svg/iconArrowRight.svg'
+import IconArrowRight from '../assets/SVG/iconArrowRight.svg'
 import Gambar from '../assets/images/User/People1.jpeg'
+import Color from '../constants/Color'
 
 const CardList = (props) => {
 
@@ -51,7 +52,7 @@ const CardList = (props) => {
                                             source={Gambar}
                                         />
                                         <Text>{item.nama}</Text>
-                                        <IconArrowRight/>
+                                        <IconArrowRight stroke={Color.AbuAbu}/>
                                     </View>
                                 </View>
                             </TouchableOpacity>

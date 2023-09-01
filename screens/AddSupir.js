@@ -90,7 +90,7 @@ export const AddSupir = () => {
                     <View className="flex-col mb-6" key={index}>
                         <Text className="text-base" style={{fontFamily:'regular'}}>{supir.title}</Text>
                         <View className="rounded-md" style={{height:44, width:'100%', marginVertical:6, justifyContent:"center", paddingLeft:8, backgroundColor:Color.AbuMuda}}>
-                            <TextInput 
+                            <TextInput
                             placeholder={supir.placeholder}
                             placeholderTextColor={Color.AbuAbu}
                             style={{fontFamily:'regular', padding:10}}

@@ -12,6 +12,8 @@ import { AddSupir } from './screens/AddSupir';
 import MainNavigator from './navigation/MainNavigator'
 import { TabContextProvider } from './context/TabContext';
 import { ButtonBack } from './components/ButtonBack';
+import DetailSupir from './screens/DetailSupir';
+import DetailKendaraan from './screens/DetailKendaraan';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -33,7 +35,7 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    
+    <DetailKendaraan/>
     // <TabContextProvider>
     // <NavigationContainer>
     //   <Stack.Navigator 
