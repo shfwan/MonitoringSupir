@@ -6,20 +6,18 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 // import Search from '../assets/SVG/iconSearch.svg'
 import { CategoriesAllData } from '../constants/Categories'
 import Category from '../components/Category'
-import Search from '../components/Search'
 
 
 export default function AllDataScreens () {
+  
   return (
     <View className="flex-1 relative"
     style={{backgroundColor:Color.Background}}
     >
-
-
+      
       <StatusBar/>
       <SafeAreaView>
         {/* search bar */}
-        <Search />
         {/* categories */}
         <Category data={CategoriesAllData}/>
       </SafeAreaView>

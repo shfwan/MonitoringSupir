@@ -35,22 +35,21 @@ if(!fontsLoaded){
   return null;
 }
   return (
-    <DetailKendaraan/>
-    // <TabContextProvider>
-    // <NavigationContainer>
-    //   <Stack.Navigator 
-    //   initialRouteName='AppNavigation'
-    //   screenOptions={{headerShown:false}}
-    //   >
-    //     <Stack.Screen
-    //     name='AppNavigation'
-    //     component={AppNavigation}
-    //     />
-    //     <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
-    //     <Stack.Screen name='Supir' component={AddSupir}/>
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    // </TabContextProvider>
+    <TabContextProvider>
+    <NavigationContainer>
+      <Stack.Navigator 
+      initialRouteName='AppNavigation'
+      screenOptions={{headerShown:false}}
+      >
+        <Stack.Screen
+          name='AppNavigation'
+          component={AppNavigation}
+        />
+        <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
+        <Stack.Screen name='Supir' component={AddSupir}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    </TabContextProvider>
   );
 }
 

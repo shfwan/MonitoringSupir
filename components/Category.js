@@ -1,21 +1,43 @@
-import { View, Text, FlatList, ScrollView } from 'react-native'
+import { View, Text, FlatList, TextInput } from 'react-native'
 import React, { useState } from 'react'
+import SearchIcon from '../assets/SVG/iconSearch.svg'
 import { TouchableOpacity } from 'react-native'
+
 import Color from '../constants/Color'
 import CardList from './CardList'
 
 const Category = (props) => {
     const [itemSelect] = props.data
+    const [textInput, setTextInput] = useState("")
     const [activeCategory, setActiveCategory] = useState(1)
     const [filter, setFilter] = useState(itemSelect.title)
+
+    
     return (
         <View className="px-5 mt-5">
+                <View className=" shadow-md " >
+                    <View 
+                        className="flex-row shadow-lg items-center rounded-full p-1"
+                        style={{backgroundColor:Color.Putih}} >
+                        <TextInput 
+                            className="p-2 flex-1 ml-2 text-gray-600"
+                            placeholder='Cari' 
+                            value={textInput}
+                            onChangeText={(text) => setTextInput(text)}
+                            style={{fontFamily:"regular", fontSize:16}} />
+                        <TouchableOpacity
+                            className="rounded-full p-2 mr-2"
+                            style={{backgroundColor:Color.Hijau}} >
+                            <SearchIcon />
+                        </TouchableOpacity>
+                    </View>
+                </View>
             <FlatList 
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 data={props.data}
                 keyExtractor={item => item.id}
-                className="overflow-visible"
+                className="overflow-visible mt-3"
                 renderItem= {
                     ({item}) => {
                         isActive = item.id == activeCategory;
@@ -40,7 +62,7 @@ const Category = (props) => {
                     }}
             />
             
-            <CardList category={filter} search=""/>
+            <CardList category={filter} search={textInput}/>
 
         </View>
     )
