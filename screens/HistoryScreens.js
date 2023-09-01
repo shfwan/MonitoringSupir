@@ -6,9 +6,8 @@ import Account from '../assets/SVG/iconAccount.svg'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { CategoriesAllHistory, CategoryHistory } from '../constants/Categories'
-import Category from '../components/CategoryKehadiran'
-import Search from '../components/Search'
-import Calendar from '../components/Calendar'
+import Category from '../components/Category'
+// import Calendar from '../components/Calendar'
 
 const HistoryScreens = () => {
   
