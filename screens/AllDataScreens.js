@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 // import Search from '../assets/SVG/iconSearch.svg'
 import { CategoriesAllData } from '../constants/Categories'
-import Category from '../components/Category'
+import Category from '../components/CategoryData'
 
 
 export default function AllDataScreens () {
