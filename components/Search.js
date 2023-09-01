@@ -1,12 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import SearchIcon from '../assets/SVG/iconSearch.svg'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Color from '../constants/Color'
 
 
 const Search = () => {
     const [textInput, setTextInput] = useState("")
-    console.log(textInput);
     return (
         <View className="mx-5 shadow-md mt-5" >
             <View 
