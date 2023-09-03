@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Modal } from 'react-native'
 import React, { useState } from 'react'
 import Color from '../constants/Color'
 import { Calendar } from 'react-native-calendars'
+import IconCalendar from '../assets/svg/Calendar.svg'
 // import iconCalender from '../assets/svg/'
 
 const Kalender = (props) => {
@@ -28,7 +29,10 @@ const Kalender = (props) => {
     return (
         <View className="items-center" style={{display: props.display}}>
             <TouchableOpacity className="bg-white p-2 rounded-md " style={{elevation: 5}}>
-                <Text  className="text-base font-bold" style={{color: Color.Hijau}} onPress={() => setModal(true)}> {isDate} </Text>
+                <View className ="flex-row items-center gap-x-2">
+                    <IconCalendar/>
+                    <Text Text  className="text-base font-bold" style={{color: Color.Hijau}} onPress={() => setModal(true)}> {isDate} </Text>
+                </View>
             </TouchableOpacity>
             <Modal transparent={true} visible={showModal} animationType='fade' onRequestClose={() => setModal(false)}>
                 <TouchableOpacity className="h-full" activeOpacity={1} onPressOut={() => setModal(false)}>

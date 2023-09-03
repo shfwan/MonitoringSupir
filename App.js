@@ -32,13 +32,11 @@ if(!fontsLoaded){
     <TabContextProvider>
       <NavigationContainer>
         <Stack.Navigator 
-        initialRouteName='AppNavigation'
-        screenOptions={{headerShown:false}}
-        >
+          initialRouteName='AppNavigation'
+          screenOptions={{headerShown:false}}>
           <Stack.Screen
             name='AppNavigation'
-            component={AppNavigation}
-          />
+            component={AppNavigation}/>
           <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
           <Stack.Screen name='Supir' component={AddSupir}/>
         </Stack.Navigator>
