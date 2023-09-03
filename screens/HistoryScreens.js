@@ -7,14 +7,23 @@ import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { CategoriesAllHistory, CategoryHistory } from '../constants/Categories'
 import Category from '../components/Category'
+import { Provider } from 'react-redux'
+import storeState from '../redux/store'
+import Kalender from '../components/Kalender'
+// import { }
 
 const HistoryScreens = () => {
   
   return(
     <View className="flex-1 bg-white">
       <StatusBar/>
-      <SafeAreaView className="flex-1">
-        <Category data={CategoriesAllHistory} display="none"/>
+      <SafeAreaView>
+        <Provider store={storeState}>
+          <Category data={CategoriesAllHistory} display="none"/>
+          <View className="">
+            <Kalender />
+          </View>
+        </Provider>
       </SafeAreaView>
     </View>
   )
