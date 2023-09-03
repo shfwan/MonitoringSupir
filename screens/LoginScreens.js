@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import Color from '../constants/Color'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import LogoMobil from '../assets/SVG/logoMobil.svg'
-import LogoText from '../assets/SVG/logoText.svg'
-import Account from '../assets/SVG/iconAccount.svg'
-import Lock from '../assets/SVG/iconLock.svg'
-import Eye from '../assets/SVG/IconEye.svg'
-import EyeSlash from '../assets/SVG/IconEyeSlash.svg'
+import LogoMobil from '../assets/svg/logoMobil.svg'
+import LogoText from '../assets/svg/logoText.svg'
+import Account from '../assets/svg/iconAccount.svg'
+import Lock from '../assets/svg/iconLock.svg'
+import Eye from '../assets/svg/IconEye.svg'
+import EyeSlash from '../assets/svg/IconEyeSlash.svg'
 
 
 export const LoginScreens = () => {

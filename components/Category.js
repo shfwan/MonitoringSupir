@@ -1,10 +1,11 @@
 import { View, Text, FlatList, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import SearchIcon from '../assets/SVG/iconSearch.svg'
+import SearchIcon from '../assets/svg/iconSearch.svg'
 import { TouchableOpacity } from 'react-native'
 
 import Color from '../constants/Color'
 import CardList from './CardList'
+import Kalender from './Kalender'
 
 const Category = (props) => {
     const [itemSelect] = props.data
@@ -14,8 +15,8 @@ const Category = (props) => {
 
     
     return (
-        <View className="px-5 mt-5">
-                <View className=" shadow-md " >
+        <View className="px-5 h-fit w-fit">
+            <View className=" shadow-md " style={{display: props.display}}>
                     <View 
                         className="flex-row shadow-lg items-center rounded-full p-1"
                         style={{backgroundColor:Color.Putih}} >
@@ -31,7 +32,7 @@ const Category = (props) => {
                             <SearchIcon />
                         </TouchableOpacity>
                     </View>
-                </View>
+            </View>
             <FlatList 
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -61,8 +62,10 @@ const Category = (props) => {
                         )
                     }}
             />
-            
-            <CardList category={filter} search={textInput}/>
+            <View className="mt-3">
+                <Kalender display={props.Kalender}/>
+                <CardList category={filter} search={textInput}/>
+            </View>
 
         </View>
     )

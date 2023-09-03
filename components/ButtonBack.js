@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import Color from "../constants/Color";
-import ArrowLeft from '../assets/SVG/iconArrowLeft.svg'
+import ArrowLeft from '../assets/svg/iconArrowLeft.svg'
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const ButtonBack = () => {

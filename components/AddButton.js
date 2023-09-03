@@ -8,9 +8,9 @@ import {
   Animated,
 } from "react-native";
 import Color from "../constants/Color";
-import Plus from '../assets/SVG/iconPlus.svg'
-import Account from '../assets/SVG/iconAccount.svg'
-import Car from '../assets/SVG/iconCar.svg'
+import Plus from '../assets/svg/iconPlus.svg'
+import Account from '../assets/svg/iconAccount.svg'
+import Car from '../assets/svg/iconCar.svg'
 import { useNavigation } from "@react-navigation/native";
 
 const AddButton = ({opened, toggleOpened}) => {

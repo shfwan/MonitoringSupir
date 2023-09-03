@@ -2,11 +2,11 @@ import { ScrollView, StatusBar, View,Text , Image, TouchableOpacity, TextInput} 
 import React, {useState} from "react"
 import Color from "../constants/Color"
 import * as ImagePicker from 'expo-image-picker'
-import LogoMobil from '../assets/SVG/logoText.svg'
+import LogoMobil from '../assets/svg/logoText.svg'
 import {imagesDataURL} from '../constants/Data'
-import Camera from '../assets/SVG/iconCamera.svg'
+import Camera from '../assets/svg/iconCamera.svg'
 import { SafeAreaView } from "react-native-safe-area-context"
-import Back from '../assets/SVG/iconArrowLeft.svg'
+import Back from '../assets/svg/iconArrowLeft.svg'
 import { DataKendaraan } from "../constants/Database"
 import { ButtonBack } from "../components/ButtonBack"
 import { useNavigation } from "@react-navigation/native"

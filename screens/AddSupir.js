@@ -4,11 +4,11 @@ import Color from "../constants/Color"
 import { useState } from "react"
 import { imageData } from "../constants/Data"
 import * as ImagePicker from 'expo-image-picker'
-import Camera from '../assets/SVG/iconCamera.svg'
+import Camera from '../assets/svg/iconCamera.svg'
 import { DataSupir } from "../constants/Database"
 import { useNavigation } from "@react-navigation/native"
 import { ButtonBack } from "../components/ButtonBack"
-import Save from '../assets/SVG/iconSaveAdd.svg'
+import Save from '../assets/svg/iconSaveAdd.svg'
 
 export const AddSupir = () => {
     const navigation = useNavigation()

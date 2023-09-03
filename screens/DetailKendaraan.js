@@ -3,8 +3,8 @@ import React from 'react'
 import Color from '../constants/Color'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ButtonBack } from '../components/ButtonBack'
-import Edit from '../assets/SVG/iconEdit.svg'
-import Delete from '../assets/SVG/iconDelete.svg'
+import Edit from '../assets/svg/iconEdit.svg'
+import Delete from '../assets/svg/iconDelete.svg'
 
 const DetailKendaraan = () => {
   return (
