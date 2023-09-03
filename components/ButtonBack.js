@@ -12,4 +12,12 @@ export const ButtonBack = () => {
                 </View>
     )
 }
+export const ButtonBackHijau = () => {
+    return (
+            
+                <View className="rounded-2xl"  style={{ width: 45, height: 45, backgroundColor:Color.Putih, borderRadius:15, justifyContent:'center', alignItems:'center', marginLeft:10, borderColor:Color.Hijau, borderWidth:1 }}>
+                    <ArrowLeft stroke={Color.Hijau}/>
+                </View>
+    )
+}
 

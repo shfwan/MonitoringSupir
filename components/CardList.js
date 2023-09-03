@@ -1,6 +1,6 @@
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import IconArrowRight from '../assets/svg/iconArrowRight.svg'
+import IconArrowRight from '../assets/SVG/iconArrowRight.svg'
 import Gambar from '../assets/images/User/People1.jpeg'
 import Color from '../constants/Color'
 

@@ -28,6 +28,7 @@ if(!fontsLoaded){
   return null;
 }
   return (
+    
     <TabContextProvider>
       <NavigationContainer>
         <Stack.Navigator 
