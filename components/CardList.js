@@ -1,34 +1,16 @@
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import IconArrowRight from '../assets/svg/iconArrowRight.svg'
 import Gambar from '../assets/images/User/People1.jpeg'
-import Color from '../constants/Color'
 import { useDispatch, useSelector } from 'react-redux'
 import { setFilter } from '../redux/action'
 
-const CardList = (props) => {
+const CardList = ({select, data}) => {
     const dispatch = useDispatch()
     const selectorFilter = useSelector(data => data.filter)
     const selectorSearch = useSelector(data => data.search)
-    selectorFilter === "" ? dispatch(setFilter(props.select)) : ""
-
-    const data = [
-        {nama: "shafwan", category: "Supir"},
-        {nama: "ongko", category: "Supir"},
-        {nama: "mingki", category: "Supir"},
-        {nama: "ong", category: "Supir"},
-
-        {nama: "ein", category: "User"},
-        {nama: "ien", category: "User"},
-        {nama: "risa", category: "User"},
-
-        {nama: "fino", category: "Kendaraan"},
-        {nama: "mio", category: "Kendaraan"},
-        {nama: "vario", category: "Kendaraan"},
-        {nama: "vega", category: "Kendaraan"},
-    ]
     const [isHidden, setHidden] = useState(false)
-    // console.log(selector);
+    selectorFilter === "" ? dispatch(setFilter(select)) : ""
     return (
         <FlatList
             style={{marginTop: 5}}

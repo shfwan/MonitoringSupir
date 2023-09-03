@@ -28,7 +28,7 @@ const Kalender = (props) => {
     const tanggal = `${date.getDate()} ${bulan[date.getMonth()]} ${date.getFullYear()}`
     const [isDate, setDate] = useState(tanggal)
 
-
+    selector === "" ? dispatch(setCalendar(isDate)) : selector
     const [showModal, setModal] = useState(false)
 
     return (

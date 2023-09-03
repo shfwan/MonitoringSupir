@@ -11,20 +11,37 @@ import Search from '../components/Search'
 import CardList from '../components/CardList'
 
 
-export default function AllDataScreens () {
+const AllDataScreens = () => {
+
+  const data = [
+    {nama: "shafwan", category: "Supir"},
+    {nama: "ongko", category: "Supir"},
+    {nama: "mingki", category: "Supir"},
+    {nama: "ong", category: "Supir"},
+
+    {nama: "ein", category: "User"},
+    {nama: "ien", category: "User"},
+    {nama: "risa", category: "User"},
+
+    {nama: "fino", category: "Kendaraan"},
+    {nama: "mio", category: "Kendaraan"},
+    {nama: "vario", category: "Kendaraan"},
+    {nama: "vega", category: "Kendaraan"},
+  ]
   
   return (
-    <View className="px-5 h-fit w-fit"style={{backgroundColor:Color.Background}}>
+    <View className="p-4 h-fit w-fit"style={{backgroundColor:Color.Background}}>
       
       <StatusBar/>
       <SafeAreaView>
         <Provider store={storeState}>
           <Search/>
           <Category data={CategoriesAllData}/>
-          <CardList select="Kendaraan"/>
+          <CardList select="Kendaraan" data={data}/>
         </Provider>
       </SafeAreaView>
     </View>
   )
 }
 
+export default AllDataScreens
