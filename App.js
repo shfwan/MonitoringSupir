@@ -14,6 +14,8 @@ import { TabContextProvider } from './context/TabContext';
 import { ButtonBack } from './components/ButtonBack';
 import DetailSupir from './screens/DetailSupir';
 import DetailKendaraan from './screens/DetailKendaraan';
+import DetailUser from './screens/DetailUser';
+import DetailKehadiran from './screens/DetailKehadiran';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -35,6 +37,7 @@ if(!fontsLoaded){
   return null;
 }
   return (
+    
     <TabContextProvider>
     <NavigationContainer>
       <Stack.Navigator 

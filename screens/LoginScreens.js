@@ -19,9 +19,8 @@ export const LoginScreens = () => {
       
     >
 
-    <View className="flex-1 bg-white"
+    <View className="flex-1"
     style={{backgroundColor:Color.Hijau, position:"relative"}}
-    
     >
       <StatusBar/>
       <SafeAreaView className="flex mt-12">
