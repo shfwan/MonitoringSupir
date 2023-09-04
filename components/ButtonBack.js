@@ -1,23 +1,20 @@
-import React from "react";
-import { TouchableOpacity, View } from "react-native";
-import Color from "../constants/Color";
+import { View, Text, TouchableOpacity, TouchableHighlight } from 'react-native'
+import React from 'react'
 import ArrowLeft from '../assets/svg/iconArrowLeft.svg'
-import { SafeAreaView } from "react-native-safe-area-context";
+import Color from '../constants/Color'
+import { useNavigation } from '@react-navigation/native'
+import { style } from '../theme/Index.Theme'
 
-export const ButtonBack = () => {
+
+const ButtonBack = () => {
+    const navigation = useNavigation()
     return (
-            
-                <View className="rounded-2xl"  style={{ width: 45, height: 45, backgroundColor:Color.Putih, borderRadius:15, justifyContent:'center', alignItems:'center', marginLeft:10, borderColor:Color.AbuAbu, borderWidth:1 }}>
-                    <ArrowLeft stroke={Color.Hitam}/>
-                </View>
-    )
-}
-export const ButtonBackHijau = () => {
-    return (
-            
-                <View className="rounded-2xl"  style={{ width: 45, height: 45, backgroundColor:Color.Putih, borderRadius:15, justifyContent:'center', alignItems:'center', marginLeft:10, borderColor:Color.Hijau, borderWidth:1 }}>
-                    <ArrowLeft stroke={Color.Hijau}/>
-                </View>
+        <TouchableOpacity onPress={() => { navigation.goBack() }} activeOpacity={1} >
+            <View className="px-5 py-3 rounded-xl bg-white " style={{elevation: 5}}>
+                <ArrowLeft stroke={Color.Hijau}/>
+            </View>
+        </TouchableOpacity>
     )
 }
 
+export default ButtonBack

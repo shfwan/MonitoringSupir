@@ -3,9 +3,13 @@ import {NavigationContainer} from '@react-navigation/native'
 import AppNavigation from './navigation/AppNavigation';
 import {useFonts} from 'expo-font'
 import React, {useCallback} from 'react';
-import { AddKendaraan } from './screens/AddKendaraan';
+import AddKendaraan from './screens/AddKendaraan';
 import { AddSupir } from './screens/AddSupir';
 import { TabContextProvider } from './context/TabContext';
+import DetailKehadiran from './screens/DetailKehadiran';
+import DetailSupir from './screens/DetailSupir';
+import DetailUser from './screens/DetailUser';
+import DetailKendaraan from './screens/DetailKendaraan';
 
 
 const Stack = createNativeStackNavigator()
@@ -31,14 +35,14 @@ if(!fontsLoaded){
     
     <TabContextProvider>
       <NavigationContainer>
-        <Stack.Navigator 
-          initialRouteName='AppNavigation'
-          screenOptions={{headerShown:false}}>
-          <Stack.Screen
-            name='AppNavigation'
-            component={AppNavigation}/>
-          <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
-          <Stack.Screen name='Supir' component={AddSupir}/>
+        <Stack.Navigator initialRouteName='AppNavigation' screenOptions={{headerShown:false}}>
+            <Stack.Screen name='AppNavigation' component={AppNavigation}/>
+            <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
+            <Stack.Screen name='Supir' component={AddSupir}/>
+            <Stack.Screen name='DetailKehadiran' component={DetailKehadiran}/>
+            <Stack.Screen name='DetailKendaraan' component={DetailKendaraan}/>
+            <Stack.Screen name='DetailSupir' component={DetailSupir}/>
+            <Stack.Screen name='DetailUser' component={DetailUser}/>
         </Stack.Navigator>
       </NavigationContainer>
     </TabContextProvider>

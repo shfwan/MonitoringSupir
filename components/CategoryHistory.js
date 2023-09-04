@@ -1,15 +1,15 @@
 import { View, Text, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import Color from '../constants/Color'
-import { useDispatch } from 'react-redux'
-import { setFilter } from '../redux/action'
+import { useDispatch, useSelector } from 'react-redux'
+import { setFilterHistory } from '../redux/action'
 
-const Category = ({data}) => {
+const CategoryHistory = ({select, data}) => {
     const dispatch = useDispatch()
     const [activeCategory, setActiveCategory] = useState(1)
 
-
+    
     return (
         <FlatList 
             horizontal
@@ -28,7 +28,7 @@ const Category = ({data}) => {
                                 style={{backgroundColor: isActive? Color.Hijau: Color.Putih, borderColor:isActive? Color.Putih : Color.Hijau}} 
                                 onPress={ () => {
                                         setActiveCategory(item.id)
-                                        dispatch(setFilter(item.title))
+                                        dispatch(setFilterHistory(item.title))
                                     }
                                 }>
                                 <View className="w-24">
@@ -42,4 +42,4 @@ const Category = ({data}) => {
     )
 }
 
-export default Category
+export default CategoryHistory

@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import Color from '../constants/Color'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -9,10 +9,10 @@ import { Provider } from 'react-redux'
 import storeState from '../redux/store'
 import Search from '../components/Search'
 import CardList from '../components/CardList'
-
+import { useFocusEffect, } from '@react-navigation/native'
+import { setFilter } from '../redux/action'
 
 const AllDataScreens = () => {
-
   const data = [
     {nama: "shafwan", category: "Supir"},
     {nama: "ongko", category: "Supir"},
@@ -28,6 +28,12 @@ const AllDataScreens = () => {
     {nama: "vario", category: "Kendaraan"},
     {nama: "vega", category: "Kendaraan"},
   ]
+  // const dispatch = useDispatch()
+  const [select, isSelected] = useState("")
+  useFocusEffect(React.useCallback(() => {
+    isSelected("Kendaraan")
+    // dispatch(setFilter("Kendaraan"))
+  }))
   
   return (
     <View className="p-4 h-fit w-fit"style={{backgroundColor:Color.Background}}>
@@ -36,8 +42,8 @@ const AllDataScreens = () => {
       <SafeAreaView>
         <Provider store={storeState}>
           <Search/>
-          <Category data={CategoriesAllData}/>
-          <CardList select="Kendaraan" data={data}/>
+          <Category select="Kendaraan" data={CategoriesAllData}/>
+          <CardList select={select} data={data}/>
         </Provider>
       </SafeAreaView>
     </View>

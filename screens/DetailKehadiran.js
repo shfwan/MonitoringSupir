@@ -2,23 +2,27 @@ import { View, Text, TouchableOpacity, Dimensions} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Color from '../constants/Color'
-import { ButtonBackHijau } from '../components/ButtonBack'
+import ButtonBack from '../components/ButtonBack'
 import MapView from 'react-native-maps'
-import Map from '../assets/SVG/iconMap.svg'
+import Map from '../assets/svg/iconMap.svg'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 const DetailKehadiran = () => {
+    const navigation = useNavigation()
+    const route = useRoute()
     return (
-        <View className="mt-10" style={{backgroundColor:Color.Putih}}>
-            <SafeAreaView className="flex-row items-center px-3">
-                <TouchableOpacity>
-                    <ButtonBackHijau/>
+        <View className="flex-1 px-3.5" style={{backgroundColor:Color.Putih}}>
+            <SafeAreaView className="mt-3 flex-row items-center ">
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <ButtonBack/>
                 </TouchableOpacity>
                 <Text className="text-2xl ml-3" style={{fontFamily:'semibold', color:Color.Hijau}}>Detail Kehadiran</Text>
             </SafeAreaView>
-            <View className="w-auto mt-6 mx-6 p-4 rounded-md" style={{backgroundColor:Color.Hijau }}>
+            <View className="w-fit mt-5  p-4 rounded-md" style={{backgroundColor:Color.Hijau }}>
                 <View className="justify-center items-center">
-                    <Text className="text-base" style={{fontFamily:'semibold', color:Color.Putih}}>Senin, 1 Agustus 2023</Text>
-                    <Text className="mt-4 text-2xl" style={{fontFamily:'semibold', color:Color.Kuning}}>Terlambat</Text>
+                    <Text className="text-base" style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.tanggal}</Text>
+                    <Text className="mt-4 text-2xl" style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.nama}</Text>
+                    <Text className="text-2xl" style={{fontFamily:'semibold', color:Color.Kuning}}>{route.params.category}</Text>
                 </View>
                 <View className="flex-row justify-evenly my-6">
                     <View className="items-center">

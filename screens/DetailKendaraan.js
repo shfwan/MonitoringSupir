@@ -6,7 +6,7 @@ import { ButtonBack } from '../components/ButtonBack'
 import Edit from '../assets/svg/iconEdit.svg'
 import Delete from '../assets/svg/iconDelete.svg'
 
-const DetailKendaraan = () => {
+const DetailKendaraan = ({navigation}) => {
   return (
     <View className="flex-1" style={{backgroundColor:Color.Putih}}>
       <SafeAreaView className="flex-1 px-1" style={{backgroundColor:Color.Putih}}>

@@ -15,14 +15,18 @@ export const CategoriesAllData = [
 export const CategoriesAllHistory = [
     {
       id: 1,
-      title: "Hadir",
+      title: "All",
     },
     {
       id: 2,
-      title: "Sakit",
+      title: "Hadir",
     },
     {
       id: 3,
+      title: "Sakit",
+    },
+    {
+      id: 4,
       title: "Izin",
     },
 ]

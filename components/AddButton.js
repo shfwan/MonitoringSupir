@@ -1,10 +1,8 @@
 import React from "react";
-
 import {
   TouchableOpacity,
   View,
   StyleSheet,
-  Image,
   Animated,
 } from "react-native";
 import Color from "../constants/Color";
@@ -36,9 +34,7 @@ const AddButton = ({opened, toggleOpened}) => {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <TouchableOpacity
-        onPress={() => navigation.navigate("Kendaraan")}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("Kendaraan")}>
           <Animated.View
             style={[
               styles.item,
@@ -61,15 +57,12 @@ const AddButton = ({opened, toggleOpened}) => {
               },
             ]}>
             <Car
-            style={styles.addButtonIcon}
-            stroke={Color.Putih}
+              style={styles.addButtonIcon}
+              stroke={Color.Putih}
             />
           </Animated.View>
-        </TouchableOpacity>
-        
-        <TouchableOpacity
-        onPress={() => navigation.navigate('Supir')}
-        >
+        </TouchableOpacity> 
+        <TouchableOpacity onPress={() => navigation.navigate('Supir')}>
           <Animated.View
             style={[
               styles.item,

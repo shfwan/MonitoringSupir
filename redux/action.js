@@ -1,4 +1,4 @@
-import { Calendar, Filter, Search } from "./type"
+import { Calendar, Filter, Search, FilterHistory } from "./type"
 
 export const setCalendar = (date) => ({
     type: Calendar,
@@ -12,5 +12,10 @@ export const setSearch = (inputSearch) => ({
 
 export const setFilter = (selectFilter) => ({
     type: Filter,
+    data: selectFilter
+})
+
+export const setFilterHistory = (selectFilter) => ({
+    type: FilterHistory,
     data: selectFilter
 })
