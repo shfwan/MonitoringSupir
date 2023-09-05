@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   TouchableOpacity,
   View,
@@ -9,13 +9,15 @@ import Color from "../constants/Color";
 import Plus from '../assets/svg/iconPlus.svg'
 import Account from '../assets/svg/iconAccount.svg'
 import Car from '../assets/svg/iconCar.svg'
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native"
+
+
 
 const AddButton = ({opened, toggleOpened}) => {
   const navigation = useNavigation()
   const animation = React.useRef(new Animated.Value(0)).current;
 
-  React.useEffect(() => {
+  useEffect(() => {
     Animated.timing(animation, {
       toValue: opened ? 1 : 0,
       duration: 300,
@@ -30,6 +32,8 @@ const AddButton = ({opened, toggleOpened}) => {
       outputRange: [0, 0, 1],
     }),
   };
+
+  
 
   return (
     <View style={styles.container}>
@@ -56,10 +60,7 @@ const AddButton = ({opened, toggleOpened}) => {
                 ],
               },
             ]}>
-            <Car
-              style={styles.addButtonIcon}
-              stroke={Color.Putih}
-            />
+            <Car style={styles.addButtonIcon} stroke={Color.Putih} />
           </Animated.View>
         </TouchableOpacity> 
         <TouchableOpacity onPress={() => navigation.navigate('Supir')}>
@@ -84,14 +85,11 @@ const AddButton = ({opened, toggleOpened}) => {
                 ],
               },
             ]}>
-            <Account
-            style={styles.addButtonIcon}
-            stroke={Color.Putih}
-            />
+            <Account style={styles.addButtonIcon} stroke={Color.Putih} />
           </Animated.View>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={toggleOpened}
+          onPress={(toggleOpened)}
           style={styles.addButton}>
           <Animated.View
             style={[
@@ -107,10 +105,7 @@ const AddButton = ({opened, toggleOpened}) => {
                 ],
               },
             ]}>
-            <Plus
-              stroke={Color.Putih}
-              style={styles.addButtonIcon}
-            />
+            <Plus stroke={Color.Putih} style={styles.addButtonIcon} />
           </Animated.View>
         </TouchableOpacity>
       </View>

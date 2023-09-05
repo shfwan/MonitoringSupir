@@ -42,17 +42,17 @@ const AppNavigation = () => {
     return (
         <Tab.Navigator screenOptions={screenOptions}>
             <Tab.Screen name="Home" 
-            component={HomeScreens}
-            options={{
-                tabBarIcon: ({focused}) => {
-                    return <Home
-                    size={24}
-                    fill={focused ? Color.Hijau : Color.AbuAbu}
-                    />
-            }}}
-            listeners={{
-                tabPress: e => opened && e.preventDefault(),
-            }}
+                component={HomeScreens}
+                options={{
+                    tabBarIcon: ({focused}) => {
+                        return <Home
+                        size={24}
+                        fill={focused ? Color.Hijau : Color.AbuAbu}
+                        />
+                }}}
+                listeners={{
+                    tabPress: e => opened && e.preventDefault(),
+                }}
             />
             <Tab.Screen 
                 name="History" 
@@ -66,7 +66,7 @@ const AppNavigation = () => {
             />
             <Tab.Screen
                 name="Add"
-                component={HomeScreens}
+                component={AddButton}
                 options={{
                     tabBarItemStyle: {height: 0},
                     tabBarButton: () => ( <AddButton opened={opened} toggleOpened={toggleOpened} /> )
@@ -82,6 +82,7 @@ const AppNavigation = () => {
             <Tab.Screen name="Notif" 
                 component={NotificationScreens}
                 options={{
+                    tabBarBadge: 3,
                     tabBarIcon: ({focused}) => { return <Notif size={24} stroke={focused ? Color.Hijau : Color.AbuAbu} />}
                 }}
                 listeners={{ tabPress: e => opened && e.preventDefault() }}

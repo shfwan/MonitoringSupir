@@ -36,7 +36,7 @@ const AllDataScreens = () => {
   }))
   
   return (
-    <View className="p-4 h-fit w-fit"style={{backgroundColor:Color.Background}}>
+    <View className="flex-1 p-4 h-fit w-fit"style={{backgroundColor:Color.Background}}>
       
       <StatusBar/>
       <SafeAreaView>

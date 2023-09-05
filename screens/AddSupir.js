@@ -8,7 +8,6 @@ import Camera from '../assets/svg/iconCamera.svg'
 import { DataSupir } from "../constants/Database"
 import { useNavigation } from "@react-navigation/native"
 import { ButtonBack } from "../components/ButtonBack"
-import Save from '../assets/svg/iconSaveAdd.svg'
 
 export const AddSupir = () => {
     const navigation = useNavigation()
@@ -22,12 +21,10 @@ export const AddSupir = () => {
         quality: 1,
         });
     
-        console.log(result);
-    
         if (!result.canceled) {
-          setSelectedImage(result.assets[0].uri);
+            setSelectedImage(result.assets[0].uri);
         }
-      }
+    }
     return (
         <View className="flex-1" style={{backgroundColor:Color.Putih}} 
             >

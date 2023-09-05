@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar, View,Text , Image, TouchableOpacity, TextInput} from "react-native"
+import { ScrollView, View,Text , Image, TouchableOpacity, TextInput} from "react-native"
 import React, {useState} from "react"
 import Color from "../constants/Color"
 import * as ImagePicker from 'expo-image-picker'
@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native"
 
 
 const AddKendaraan = () => {
+    console.log("asdasdsad");
     const navigation = useNavigation()
     const [selectedImage, setSelectedImage] = useState(imagesDataURL[0])
     
@@ -21,9 +22,7 @@ const AddKendaraan = () => {
             aspect: [4, 4],
             quality: 1,
         });
-    
-        console.log(result);
-    
+        
         if (!result.canceled) {
             setSelectedImage(result.assets[0].uri);
         }
