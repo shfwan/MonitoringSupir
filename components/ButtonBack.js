@@ -3,7 +3,6 @@ import React from 'react'
 import ArrowLeft from '../assets/svg/iconArrowLeft.svg'
 import Color from '../constants/Color'
 import { useNavigation } from '@react-navigation/native'
-import { style } from '../theme/Index.Theme'
 
 
 const ButtonBack = () => {

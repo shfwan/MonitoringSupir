@@ -6,12 +6,11 @@ import {imagesDataURL} from '../constants/Data'
 import Camera from '../assets/svg/iconCamera.svg'
 import { SafeAreaView } from "react-native-safe-area-context"
 import { DataKendaraan } from "../constants/Database"
-import { ButtonBack } from "../components/ButtonBack"
+import ButtonBack from "../components/ButtonBack"
 import { useNavigation } from "@react-navigation/native"
 
 
 const AddKendaraan = () => {
-    console.log("asdasdsad");
     const navigation = useNavigation()
     const [selectedImage, setSelectedImage] = useState(imagesDataURL[0])
     
@@ -28,19 +27,14 @@ const AddKendaraan = () => {
         }
     };
     return (
-        <View className="flex-1" style={{backgroundColor:Color.Putih}} >
-            <SafeAreaView style={{flex:1, backgroundColor:Color.Putih, paddingHorizontal:22}}>
-                    {/* App Bar dan Button */}
-                    <View style={{flexDirection:"row", justifyContent:'center',alignItems:'center', height:50}}>
-                        <TouchableOpacity style={{position:'absolute', left:-15}}
-                        onPress={() => navigation.goBack()}
-                        >
-                        <ButtonBack />
-                        </TouchableOpacity>
-                        <Text className="text-lg text-center" style={{fontFamily:'semibold'}}>Input Kendaraan</Text>
-                    </View>
-                    
-                    <ScrollView
+        <View className="flex-1 px-4" style={{backgroundColor:Color.Putih}} >
+            <SafeAreaView className="mt-3 flex-row items-center ">
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <ButtonBack/>
+                </TouchableOpacity>
+                <Text className="text-2xl ml-3" style={{fontFamily:'semibold', color:Color.Hijau}}>Input Kendaraan</Text>
+            </SafeAreaView>
+            <ScrollView
                     showsVerticalScrollIndicator={false}
                     >
                     {/* Foto Profil */}
@@ -106,8 +100,7 @@ const AddKendaraan = () => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    </ScrollView>
-            </SafeAreaView>
+            </ScrollView>
         </View>
     )
 }

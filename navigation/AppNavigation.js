@@ -66,7 +66,7 @@ const AppNavigation = () => {
             />
             <Tab.Screen
                 name="Add"
-                component={AddButton}
+                component={HomeScreens}
                 options={{
                     tabBarItemStyle: {height: 0},
                     tabBarButton: () => ( <AddButton opened={opened} toggleOpened={toggleOpened} /> )

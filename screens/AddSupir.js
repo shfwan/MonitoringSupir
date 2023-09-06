@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker'
 import Camera from '../assets/svg/iconCamera.svg'
 import { DataSupir } from "../constants/Database"
 import { useNavigation } from "@react-navigation/native"
-import { ButtonBack } from "../components/ButtonBack"
+import ButtonBack from "../components/ButtonBack"
 
 export const AddSupir = () => {
     const navigation = useNavigation()
@@ -26,20 +26,14 @@ export const AddSupir = () => {
         }
     }
     return (
-        <View className="flex-1" style={{backgroundColor:Color.Putih}} 
-            >
-            <SafeAreaView style={{flex:1, backgroundColor:Color.Putih, paddingHorizontal:22}}>
-                {/* App Bar dan Button */}
-                <View style={{flexDirection:"row", justifyContent:'center', alignItems:'center', height:50}}>
-                    <TouchableOpacity style={{position:'absolute', left:-15}}
-                    onPress={() => navigation.goBack()}
-                    >
-                        <ButtonBack/>
-                    </TouchableOpacity>
-                    <Text className="text-lg" style={{fontFamily:'semibold'}}>Input Supir</Text>
-                </View>
-
-                <ScrollView
+        <View className="flex-1 px-4" style={{backgroundColor:Color.Putih}}>
+            <SafeAreaView className="mt-3 flex-row items-center ">
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <ButtonBack/>
+                </TouchableOpacity>
+                <Text className="text-2xl ml-3" style={{fontFamily:'semibold', color:Color.Hijau}}>Input Kendaraan</Text>
+            </SafeAreaView>
+            <ScrollView
                 showsVerticalScrollIndicator={false}
                 >
                 {/* Foto Profil */}
@@ -106,7 +100,6 @@ export const AddSupir = () => {
                     </View>
                 </View>
                 </ScrollView>
-            </SafeAreaView>
 
             </View>
     )

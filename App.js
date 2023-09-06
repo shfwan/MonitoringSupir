@@ -39,10 +39,10 @@ if(!fontsLoaded){
             <Stack.Screen name='AppNavigation' component={AppNavigation}/>
             <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
             <Stack.Screen name='Supir' component={AddSupir}/>
-            <Stack.Screen name='DetailKehadiran' component={DetailKehadiran}/>
+            {/* <Stack.Screen name='DetailKehadiran' component={DetailKehadiran}/>
             <Stack.Screen name='DetailKendaraan' component={DetailKendaraan}/>
             <Stack.Screen name='DetailSupir' component={DetailSupir}/>
-            <Stack.Screen name='DetailUser' component={DetailUser}/>
+            <Stack.Screen name='DetailUser' component={DetailUser}/> */}
         </Stack.Navigator>
       </NavigationContainer>
     </TabContextProvider>
