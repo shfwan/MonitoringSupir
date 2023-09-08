@@ -38,7 +38,7 @@ const AddButton = ({opened, toggleOpened}) => {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <TouchableOpacity onPress={() => navigation.navigate("Kendaraan")}>
+        <TouchableOpacity onPress={() => navigation.navigate("AddKendaraan")}>
           <Animated.View
             style={[
               styles.item,
@@ -63,7 +63,7 @@ const AddButton = ({opened, toggleOpened}) => {
             <Car style={styles.addButtonIcon} stroke={Color.Putih} />
           </Animated.View>
         </TouchableOpacity> 
-        <TouchableOpacity onPress={() => navigation.navigate('Supir')}>
+        <TouchableOpacity onPress={() => navigation.navigate('AddSupir')}>
           <Animated.View
             style={[
               styles.item,

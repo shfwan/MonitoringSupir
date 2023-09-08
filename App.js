@@ -10,6 +10,9 @@ import DetailKehadiran from './screens/DetailKehadiran';
 import DetailSupir from './screens/DetailSupir';
 import DetailUser from './screens/DetailUser';
 import DetailKendaraan from './screens/DetailKendaraan';
+import { Provider } from 'react-redux';
+import storeState from './redux/store';
+
 
 
 const Stack = createNativeStackNavigator()
@@ -28,24 +31,26 @@ export default function App() {
     }
   },[fontsLoaded]);
 
-if(!fontsLoaded){
-  return null;
-}
+  if(!fontsLoaded){
+    return null;
+  }
   return (
-    
-    <TabContextProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='AppNavigation' screenOptions={{headerShown:false}}>
-            <Stack.Screen name='AppNavigation' component={AppNavigation}/>
-            <Stack.Screen name='Kendaraan' component={AddKendaraan}/>
-            <Stack.Screen name='Supir' component={AddSupir}/>
-            {/* <Stack.Screen name='DetailKehadiran' component={DetailKehadiran}/>
-            <Stack.Screen name='DetailKendaraan' component={DetailKendaraan}/>
-            <Stack.Screen name='DetailSupir' component={DetailSupir}/>
-            <Stack.Screen name='DetailUser' component={DetailUser}/> */}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </TabContextProvider>
+    <Provider store={storeState}>
+      
+      <TabContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName='AppNavigation' screenOptions={{headerShown:false}}>
+              <Stack.Screen name='AppNavigation' component={AppNavigation}/>
+              <Stack.Screen name='AddKendaraan' component={AddKendaraan}/>
+              <Stack.Screen name='AddSupir' component={AddSupir}/>
+              <Stack.Screen name='Kehadiran' component={DetailKehadiran}/>
+              <Stack.Screen name='Kendaraan' component={DetailKendaraan}/>
+              <Stack.Screen name='Supir' component={DetailSupir}/>
+              <Stack.Screen name='User' component={DetailUser}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </TabContextProvider>
+    </Provider>
   );
 }
 

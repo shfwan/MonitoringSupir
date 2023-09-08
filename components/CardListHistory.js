@@ -24,10 +24,11 @@ const CardListKehadiran = ({data}) => {
                     if(item.tanggal === selectorCalendar) {
                         return (
                             <TouchableOpacity 
-                                className="px-3.5 py-2.5 h-fit rounded mt-4 bg-white"
+                                className="m-0.5 px-3.5 py-2.5 h-fit rounded mt-4 bg-white"
                                 onPress={() => {
-                                    navigation.navigate("DetailKehadiran", item)
-                                }}>
+                                    navigation.navigate("Kehadiran", item)
+                                }} 
+                                style={{elevation: 2}}>
                                 <View className="flex-row items-center justify-between">
                                     <View className="flex-row items-center justify-start  ">
                                         <Image
@@ -35,8 +36,8 @@ const CardListKehadiran = ({data}) => {
                                             source={Gambar}
                                         />
                                         <View className="flex justify-start items-start mx-2 flex-column p-2">
-                                                <Text>{item.nama}</Text>
-                                                <Text>{item.category}</Text>
+                                            <Text>{item.nama}</Text>
+                                            <Text>{item.category}</Text>
                                         </View>
                                     </View>
                                     <IconArrowRight/>
