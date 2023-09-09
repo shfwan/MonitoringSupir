@@ -1,30 +1,31 @@
-import { View, Text, ScrollView , TouchableOpacity, Image} from 'react-native'
+import { View, Text, Image, FlatList} from 'react-native'
 import React from 'react'
 import Color from '../constants/Color'
-import { ButtonBack } from '../components/ButtonBack'
+import ButtonBack  from '../components/ButtonBack'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Phone from '../assets/svg/iconPhone.svg'
 import Alamat from '../assets/svg/iconAlamat.svg'
 import Email from '../assets/svg/iconEmail.svg'
-import Hadir from '../assets/svg/iconHadir.svg'
-import Izin from '../assets/svg/iconIzin.svg'
-import Sakit from '../assets/svg/iconSakit.svg'
-import Terlambat from '../assets/svg/iconWaktu.svg'
+import Status from '../components/Status'
+import { statusCount } from '../constants/Database'
+import { useRoute } from '@react-navigation/native'
 
 const DetailUser = () => {
+    const route = useRoute()
+    const date = new Date()
+    const bulan = ["Januari", "Februari", "Maret", "April", "May", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
     return (
         <View className="flex-1" style={{backgroundColor:Color.Putih}}>
-            <SafeAreaView className="flex mt-12 mb-10 px-4">
-                <TouchableOpacity>
-                    <ButtonBack/>
-                </TouchableOpacity>
+            <SafeAreaView className="px-3 mt-3 mb-16 flex-row items-center ">
+                <ButtonBack/>
+                <Text className="text-2xl ml-3" style={{fontFamily:'semibold', color:Color.Hijau}}>Detail User</Text>
             </SafeAreaView>
-            <View className="flex-1 px-6 pt-8 mt-8" style={{borderTopLeftRadius:50, borderTopRightRadius:50, backgroundColor:Color.Hijau}}>
-                <View className="items-center justify-center">
+            <View className="flex-1 px-6 pt-8 mt-20" style={{borderTopLeftRadius:25, borderTopRightRadius:25, backgroundColor:Color.Hijau}}>
+                <View className="items-center justify-center bottom-0">
                     <Image 
                         source={require("../assets/images/User/People1.jpeg")}
                         style={{height:170, width:170, borderRadius:85, borderWidth:4, borderColor:Color.Putih, marginTop:-100}}/>
-                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>Ali Putuhena</Text>
+                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>{route.params.nama}</Text>
                 </View>
                 <View>
                     <View className="flex-row items-center gap-3 mt-3">
@@ -35,48 +36,26 @@ const DetailUser = () => {
                         <Alamat stroke={Color.Putih}/>
                         <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>Galunggung</Text>
                     </View>
-                    <View className="flex-row items-center gap-3 mt-3">
-                        <Email stroke={Color.Putih}/>
-                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>aliputuhena@gmail.com</Text>
-                    </View>
+
                 </View>
                 <View className="mt-5">
-                    <View className="flex-row mb-3">
-                        <Text className="text-xl" style={{color:Color.Putih}}>Absensi bulan</Text>
-                        <Text className="text-xl"style={{color:Color.Hitam, fontFamily:'semibold'}}> Juli</Text> 
-                        <Text className="text-xl" style={{color:Color.Putih ,fontFamily:'semibold'}}> 2023</Text>
-                    </View>
-                    <View className="flex-row justify-between">
-                        <View className="w-40 justify-evenly items-center flex-row rounded-md p-5" style={{backgroundColor:Color.Putih}}>
-                            <Hadir/>
-                            <View className="items-center">
-                                <Text className="text-xl" style={{fontFamily:'semibold', color:Color.Hijau}}>Hadir</Text>
-                                <Text className="text-xl" style={{fontFamily:'semibold'}}>15</Text>
-                            </View>
-                        </View>
-                        <View className="w-40 justify-evenly items-center flex-row rounded-md p-5" style={{backgroundColor:Color.Putih}}>
-                            <Izin/>
-                            <View className="items-center">
-                                <Text className="text-xl" style={{fontFamily:'semibold', color:Color.Hijau}}>Izin</Text>
-                                <Text className="text-xl" style={{fontFamily:'semibold'}}>1</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View className="flex-row justify-between mt-5">
-                        <View className="w-40 justify-evenly items-center flex-row rounded-md p-5" style={{backgroundColor:Color.Putih}}>
-                            <Sakit/>
-                            <View className="items-center">
-                                <Text className="text-xl" style={{fontFamily:'semibold', color:Color.Hijau}}>Sakit</Text>
-                                <Text className="text-xl" style={{fontFamily:'semibold'}}>3</Text>
-                            </View>
-                        </View>
-                        <View className="w-40 justify-evenly items-center flex-row rounded-md p-5" style={{backgroundColor:Color.Putih}}>
-                            <Terlambat/>
-                            <View className="items-center">
-                                <Text className="text-xl" style={{fontFamily:'semibold', color:Color.Hijau}}>Terlambat</Text>
-                                <Text className="text-xl" style={{fontFamily:'semibold'}}>10</Text>
-                            </View>
-                        </View>
+                    <View className="mt-6 mb-3 flex-row gap-x-1">
+                        <Text className="text-lg text-white" style={{fontFamily:'regular'}}>Absensi bulan</Text>
+                        <Text className="text-lg text-black" style={{fontFamily:'semibold'}}>{bulan[date.getMonth()]}</Text>
+                        <Text className="text-lg text-white" style={{fontFamily:'semibold'}}>{date.getFullYear()}</Text>
+                    </View >
+                    <View className="items-center">
+                        <FlatList
+                            data={statusCount}
+                            numColumns={2}
+                            renderItem={
+                                ({item}) => (
+                                    <View className="m-1">
+                                        <Status icon={item.icon} status={item.status} count={item.count}/>
+                                    </View>
+                                )
+                            }
+                        />
                     </View>
                 </View>
             </View>

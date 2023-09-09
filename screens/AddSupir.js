@@ -25,6 +25,7 @@ export const AddSupir = () => {
             setSelectedImage(result.assets[0].uri);
         }
     }
+    
     return (
         <View className="flex-1 px-4" style={{backgroundColor:Color.Putih}}>
             <SafeAreaView className="mt-3 flex-row items-center ">
@@ -99,8 +100,7 @@ export const AddSupir = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                </ScrollView>
-
+            </ScrollView>
             </View>
     )
 }

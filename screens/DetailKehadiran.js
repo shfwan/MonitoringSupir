@@ -12,13 +12,11 @@ const DetailKehadiran = () => {
     const route = useRoute()
     return (
         <View className="flex-1 px-3.5" style={{backgroundColor:Color.Putih}}>
-            <SafeAreaView className="mt-3 flex-row items-center ">
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <ButtonBack/>
-                </TouchableOpacity>
+            <SafeAreaView className="mt-3 h-fit flex-row items-center ">
+                <ButtonBack/>
                 <Text className="text-2xl ml-3" style={{fontFamily:'semibold', color:Color.Hijau}}>Detail Kehadiran</Text>
             </SafeAreaView>
-            <View className="w-fit mt-5  p-4 rounded-md" style={{backgroundColor:Color.Hijau }}>
+            <View className="w-fit mt-4  p-4 rounded-md" style={{backgroundColor:Color.Hijau }}>
                 <View className="justify-center items-center">
                     <Text className="text-base" style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.tanggal}</Text>
                     <Text className="mt-4 text-2xl" style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.nama}</Text>

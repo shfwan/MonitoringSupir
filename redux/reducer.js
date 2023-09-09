@@ -1,10 +1,11 @@
-import { Calendar, Filter, FilterHistory, Search } from "./type"
+import { Calendar, CountNotif, Filter, FilterHistory, Search } from "./type"
 
 const initData = {
     calendar: "",
     search: "",
     filter: "Kendaraan",
-    filterHistory: "All"
+    filterHistory: "All",
+    countNotif: null,
 }
 
 export const reducerData = (state = initData, action) => {
@@ -28,6 +29,11 @@ export const reducerData = (state = initData, action) => {
             return {
                 ...state,
                 filterHistory: action.data
+            }
+        case CountNotif:
+            return {
+                ...state,
+                countNotif: action.data
             }
         default: return state
     }
