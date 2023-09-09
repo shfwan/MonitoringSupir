@@ -9,9 +9,19 @@ import Email from '../assets/svg/iconEmail.svg'
 import Status from '../components/Status'
 import { statusCount } from '../constants/Database'
 import { useRoute } from '@react-navigation/native'
+import axios from 'axios'
 
 const DetailUser = () => {
     const route = useRoute()
+    const [bio, setBio] = React.useState([])
+
+    React.useEffect(() => {
+        axios.get('https://monitoring-api-vert.vercel.app/api/v1/supir', {data: {supirId: route.params.supirId}})
+        .then((response) => setBio(...response.data)).catch((err) => console.log(err))
+    })
+
+
+
     const date = new Date()
     const bulan = ["Januari", "Februari", "Maret", "April", "May", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
     return (
@@ -23,18 +33,22 @@ const DetailUser = () => {
             <View className="flex-1 px-6 pt-8 mt-20" style={{borderTopLeftRadius:25, borderTopRightRadius:25, backgroundColor:Color.Hijau}}>
                 <View className="items-center justify-center bottom-0">
                     <Image 
-                        source={require("../assets/images/User/People1.jpeg")}
+                        source={{uri: `https://monitoring-api-vert.vercel.app${route.params.foto}`}}
                         style={{height:170, width:170, borderRadius:85, borderWidth:4, borderColor:Color.Putih, marginTop:-100}}/>
-                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>{route.params.nama}</Text>
+                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>{route.params.name}</Text>
                 </View>
                 <View>
                     <View className="flex-row items-center gap-3 mt-3">
+                        <Email stroke={Color.Putih}/>
+                        <Text className="text-base " style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.bio === null ? "bio belum di isi" : route.params.bio}</Text>
+                    </View>
+                    <View className="flex-row items-center gap-3 mt-3">
                         <Phone stroke={Color.Putih}/>
-                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>08123456789</Text>
+                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>{bio.phoneNumber}</Text>
                     </View>
                     <View className="flex-row items-center gap-3 mt-3">
                         <Alamat stroke={Color.Putih}/>
-                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>Galunggung</Text>
+                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>{bio.alamat}</Text>
                     </View>
 
                 </View>
