@@ -32,14 +32,7 @@ export const DataSupir = [
         title:'Nama Lengkap',
         placeholder:'Masukkan Nama Lengkap'
     },
-    {
-        title:'NIK/NIP',
-        placeholder:'Masukkan NIK/NIP'
-    },
-    {
-        title:'E-mail',
-        placeholder:'Masukkan email'
-    },
+    
     {
         title:'No HP',
         placeholder:'Masukkan Nomor HP'

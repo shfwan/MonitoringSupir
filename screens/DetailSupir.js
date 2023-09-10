@@ -6,12 +6,32 @@ import ButtonBack  from '../components/ButtonBack'
 import Edit from '../assets/svg/iconEdit.svg'
 import Delete from '../assets/svg/iconDelete.svg'
 import { useRoute } from '@react-navigation/native'
+import axios from 'axios'
 
 
 const DetailSupir = () => {
+  const apiUrl = "https://monitoring-api-vert.vercel.app"
   const route = useRoute()
   const [isEdit, setEdit] = React.useState(false)
   const [show, setShow] = React.useState(false)
+  const [textInput, setTextInput] = React.useState({
+    id: route.params.id,
+    name: route.params.name,
+    phoneNumber: route.params.phoneNumber,
+    alamat: route.params.alamat,
+  })
+  
+  const handleTextInput = (text, input) => {
+    text.persist()
+    setTextInput(prevState => ({...prevState, [input] : text.nativeEvent.text}))
+  }
+
+  const handleOnPressSimpan = () => {
+    axios.patch(apiUrl + "/api/v2/supir/id", textInput)
+    .then((response) => console.log(response.data))
+    .catch((err) => console.log(err))
+  }
+
 
   return (
     <View className="flex-1" style={{backgroundColor:Color.Putih}}>
@@ -26,7 +46,6 @@ const DetailSupir = () => {
                 onPress={() => {
                   setEdit(true)
                   setShow(true)
-
                 }}>
                 <Edit/>
             </TouchableOpacity>
@@ -42,7 +61,7 @@ const DetailSupir = () => {
       <ScrollView showsVerticalScrollIndicator={false} >
         <View className="items-center my-6">
         <Image
-          source={require('../assets/images/Supir/People1.jpeg')}
+          source={{uri: `https://monitoring-api-vert.vercel.app${route.params.user.userProfile.foto}`}}
           style={{
               height:170,
               width:170,
@@ -58,8 +77,11 @@ const DetailSupir = () => {
               <TextInput
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
-                value={route.params.name}
-                editable={isEdit} />
+                defaultValue={route.params.name}
+                placeholder="Masukan nama"
+                editable={isEdit}
+                onChange={text => handleTextInput(text, "name")}
+                />
             </View>
           </View>
           <View className="flex-col mb-6">
@@ -68,8 +90,13 @@ const DetailSupir = () => {
               <TextInput
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
-                value={route.params.phoneNumber}
-                editable={isEdit}/>
+                defaultValue={route.params.phoneNumber}
+                placeholder="Masukan nomor handphone"
+                editable={isEdit}
+                keyboardType='number-pad'
+                maxLength={12}
+                onChange={text => handleTextInput(text, "phoneNumber")}
+                />
             </View>
           </View>
           <View className="flex-col mb-6">
@@ -78,8 +105,11 @@ const DetailSupir = () => {
               <TextInput
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
-                value={route.params.alamat}
-                editable={isEdit}/>
+                placeholder="Masukan alamat"
+                defaultValue={route.params.alamat}
+                editable={isEdit}
+                onChange={text => handleTextInput(text, "alamat")}
+                />
             </View>
           </View>
           {show && (
@@ -87,6 +117,7 @@ const DetailSupir = () => {
               className="flex-1 p-3.5 rounded-lg  items-center" 
               style={{backgroundColor: Color.Hijau}} 
               onPress={() => {
+                handleOnPressSimpan()
                 setEdit(false)
                 setShow(false)
               }}>
