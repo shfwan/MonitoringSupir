@@ -61,12 +61,12 @@ const Password = () => {
                 <View className="flex-row">
                     <TouchableOpacity className="mx-2 p-2 rounded-md" style={{backgroundColor: Color.Hijau}}>
                         <View className="w-24 ">
-                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Simpan</Text>
+                            <Text className="text-white text-center text-base" style={{fontFamily: 'semibold'}}>Simpan</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity className="mx-2 p-2 rounded-md" style={{backgroundColor: Color.Hijau}} onPress={() => setPassword(false)}>
                         <View className="w-24">
-                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Tidak</Text>
+                            <Text className="text-white text-center text-base" style={{fontFamily: 'semibold'}}>Tidak</Text>
                         </View>
                     </TouchableOpacity>
                     
