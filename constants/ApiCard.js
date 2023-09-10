@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Color from './Color'
@@ -10,14 +10,15 @@ import useSWRNative, {useSWRNativeRevalidate} from '@nandorojo/swr-react-native'
 const ApiCard = (prop) => {
     const selectorFilter = useSelector(data => data.filter)
     const selectorSearch = useSelector(data => data.search)
-    
+
+    const key = "/api/v1/" + ((selectorFilter === "User") ? "user/userProfile" : selectorFilter.toLowerCase())
     const apiUrl = "https://monitoring-api-vert.vercel.app"
     const fetcher = async () => {
-        const response = await axios.get(apiUrl + "/api/v1/supir")
+        const response = await axios.get(apiUrl + key)
         return response.data
     }
     
-    const {data, isLoading, error, mutate} = useSWRNative('api/v1/supir', fetcher)
+    const {data, isLoading, error, mutate} = useSWRNative(key, fetcher)
     useSWRNativeRevalidate({
         mutate,
         revalidateOnFocus: true,
@@ -40,10 +41,15 @@ const ApiCard = (prop) => {
             data={data}
             renderItem={
                 (data) => {
-                    if (data.item.name.toLowerCase().includes(selectorSearch.toLowerCase())) {
-                        return handleFilterCategories(data)
+                    if(selectorFilter !== "User") {
+                        if (data.item.name.toLowerCase().includes(selectorSearch.toLowerCase())) {
+                            return handleFilterCategories(data)
+                        }
+                    } else {
+                        if (data.item.user.username.toLowerCase().includes(selectorSearch.toLowerCase())) {
+                            return handleFilterCategories(data)
+                        }
                     }
-
                     if(selectorSearch === "") {
                         return handleFilterCategories(data)
                     }
