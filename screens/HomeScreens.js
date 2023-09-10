@@ -12,6 +12,7 @@ import ButtonMenu from "../components/ButtonMenu"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 const HomeScreens = () => {
+  const [visible, setVisible] = useState(false)
   const carLocation = [
     {
       la: -3.698421,
@@ -31,7 +32,8 @@ const HomeScreens = () => {
     },
   ]
   return (
-    <View style={{flex:1, backgroundColor:Color.Background}}>
+    <View style={{flex:1, backgroundColor:Color.Background}}
+    >
       <SafeAreaView className="items-start absolute z-10">
         <ButtonMenu/>
       </SafeAreaView>

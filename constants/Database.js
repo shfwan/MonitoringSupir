@@ -61,7 +61,7 @@ export const statusCount = [
     },
     {
         status: "Terlambat",
-        icon: <Terlambat/>,
+        icon: <Terlambat stroke={Color.Hijau}/>,
         count: 5
     },
 ]
