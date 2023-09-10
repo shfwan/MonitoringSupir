@@ -10,8 +10,6 @@ import DetailKehadiran from './screens/DetailKehadiran';
 import DetailSupir from './screens/DetailSupir';
 import DetailUser from './screens/DetailUser';
 import DetailKendaraan from './screens/DetailKendaraan';
-import Password from './components/Password';
-import SetTime from './components/SetTime';
 
 
 

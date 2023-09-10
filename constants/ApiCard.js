@@ -18,7 +18,6 @@ const ApiCard = (prop) => {
     }
     
     const {data, isLoading, error, mutate} = useSWRNative('api/v1/supir', fetcher)
-    console.log(isLoading);
     useSWRNativeRevalidate({
         mutate,
         revalidateOnFocus: true,
@@ -27,7 +26,6 @@ const ApiCard = (prop) => {
     })
 
     const handleFilterCategories = (data) => {
-        // console.log(data.item);
         if (selectorFilter === "Kendaraan") {
             return (<CardList item={data.item}/>)
         } else if (selectorFilter === "Supir") {
@@ -35,10 +33,6 @@ const ApiCard = (prop) => {
         } else if (selectorFilter === "User") {
             return (<CardListUser item={data.item}/>)
         }
-    }
-    
-    const a = (data) => {
-        return <CardList item={data.item}/>
     }
 
     return isLoading ? <ActivityIndicator color={Color.Hijau}  size={50} animating={isLoading} /> : (

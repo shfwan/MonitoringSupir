@@ -9,7 +9,7 @@ const CardList = (prop) => {
     const selectorFilter = useSelector(data => data.filter)
     const imageNull = prop.item.user !== null ? {uri: `https://monitoring-api-vert.vercel.app${prop.item.user.userProfile.foto}`} : require('../assets/images/no-image.jpg')
     return (
-        <TouchableOpacity className="m-0.5 px-3.5 py-2.5 h-fit w-full  rounded my-1.5 bg-white" style={{elevation: 2}} key={prop.item.id} onPress={() => navigate.navigate(selectorFilter, prop.item.id)}>
+        <TouchableOpacity className="m-0.5 px-3.5 py-2.5 h-fit w-full  rounded my-1.5 bg-white" style={{elevation: 2}} key={prop.item.id} onPress={() => navigate.navigate(selectorFilter, prop.item)}>
             <View className="flex-row items-center justify-between">
                     <View className="flex-row items-center justify-start ">
                         <Image

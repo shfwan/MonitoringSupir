@@ -1,5 +1,5 @@
-import { View, Text, ScrollView, Image, TextInput, TouchableOpacity } from 'react-native'
-import React, { useEffect } from 'react'
+import { View, Text, ScrollView, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native'
+import React from 'react'
 import Color from '../constants/Color'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ButtonBack  from '../components/ButtonBack'
@@ -7,8 +7,6 @@ import Edit from '../assets/svg/iconEdit.svg'
 import Delete from '../assets/svg/iconDelete.svg'
 import { useRoute } from '@react-navigation/native'
 import axios from 'axios'
-import useSWRNative, { useSWRNativeRevalidate } from '@nandorojo/swr-react-native'
-
 
 const DetailSupir = () => {
   const apiUrl = "https://monitoring-api-vert.vercel.app"
@@ -16,40 +14,26 @@ const DetailSupir = () => {
   const [isEdit, setEdit] = React.useState(false)
   const [show, setShow] = React.useState(false)
   const [textInput, setTextInput] = React.useState({
-    id: "",
-    name: "",
-    phoneNumber: "",
-    alamat: "",
+    id: route.params.id,
+    name: route.params.name,
+    phoneNumber: route.params.phoneNumber,
+    alamat: route.params.alamat,
   })
-
-  const id = route.params
-  // console.log(id);
   
-  axios.get(apiUrl + "/api/v1/supir/id", {data: {id: id}})
-  .then((response) => {
-    console.log(response.data);
-    // setTextInput({...response, "name": response.data.name})
-  }).catch((err) => console.log(err))
-  // useEffect( () => {
-  // },[id])
-  // console.log(textInput);
   const handleTextInput = (text, input) => {
     text.persist()
     setTextInput(prevState => ({...prevState, [input] : text.nativeEvent.text}))
   }
-
+  
   const handleOnPressSimpan = async () => {
-    mutate(apiUrl + "/api/v2/supir/id", textInput)
-
     await axios.patch(apiUrl + "/api/v2/supir/id", textInput)
     .then((response) => console.log(response.data))
     .catch((err) => console.log(err))
-
-    mutate(apiUrl + "/api/v1/supir")
   }
 
+  const imageNull = route.params.user !== null ? {uri: `https://monitoring-api-vert.vercel.app${route.params.user.userProfile.foto}`} : require('../assets/images/no-image.jpg')
 
-  return (
+  return  (
     <View className="flex-1" style={{backgroundColor:Color.Putih}}>
       <SafeAreaView className="px-3 mt-3  flex-row items-center">
         <ButtonBack/>
@@ -77,7 +61,7 @@ const DetailSupir = () => {
       <ScrollView showsVerticalScrollIndicator={false} >
         <View className="items-center my-6">
         <Image
-          source={{uri: `https://monitoring-api-vert.vercel.app/assets/random/Delivery-boy.png`}}
+          source={imageNull}
           style={{
               height:170,
               width:170,
@@ -93,7 +77,7 @@ const DetailSupir = () => {
               <TextInput
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
-                defaultValue={""}
+                defaultValue={textInput.name}
                 placeholder="Masukan nama"
                 editable={isEdit}
                 onChange={text => handleTextInput(text, "name")}
@@ -106,7 +90,7 @@ const DetailSupir = () => {
               <TextInput
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
-                defaultValue={""}
+                defaultValue={textInput.phoneNumber}
                 placeholder="Masukan nomor handphone"
                 editable={isEdit}
                 keyboardType='number-pad'
@@ -122,7 +106,7 @@ const DetailSupir = () => {
                 className={`text-base ${isEdit ? "text-black":"text-gray-500" }`}
                 style={{fontFamily:'regular', padding:10}}
                 placeholder="Masukan alamat"
-                defaultValue={""}
+                defaultValue={textInput.alamat}
                 editable={isEdit}
                 onChange={text => handleTextInput(text, "alamat")}
                 />
@@ -145,5 +129,7 @@ const DetailSupir = () => {
     </View>
   )
 }
+
+
 
 export default DetailSupir

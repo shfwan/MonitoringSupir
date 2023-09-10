@@ -14,11 +14,21 @@ import axios from 'axios'
 const DetailUser = () => {
     const route = useRoute()
     const [bio, setBio] = React.useState([])
-
+    const [textInput, setTextInput] = React.useState(
+        {
+            id: route.params.user.userProfile.id,
+            username: route.params.user.username,
+            foto: route.params.user.userProfile.foto,
+            bio: route.params.user.userProfile.bio === null ? "Bio belum diisi": route.params.user.userProfile.bio,
+            phoneNumber: route.params.phoneNumber,
+            alamat: route.params.alamat,
+        }
+    )
+    console.log(textInput);
     React.useEffect(() => {
         axios.get('https://monitoring-api-vert.vercel.app/api/v1/supir', {data: {supirId: route.params.supirId}})
         .then((response) => setBio(...response.data)).catch((err) => console.log(err))
-    })
+    },[])
 
 
 
@@ -33,22 +43,22 @@ const DetailUser = () => {
             <View className="flex-1 px-6 pt-8 mt-20" style={{borderTopLeftRadius:25, borderTopRightRadius:25, backgroundColor:Color.Hijau}}>
                 <View className="items-center justify-center bottom-0">
                     <Image 
-                        source={{uri: `https://monitoring-api-vert.vercel.app${route.params.foto}`}}
+                        source={{uri: `https://monitoring-api-vert.vercel.app${textInput.foto}`}}
                         style={{height:170, width:170, borderRadius:85, borderWidth:4, borderColor:Color.Putih, marginTop:-100}}/>
-                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>{route.params.name}</Text>
+                    <Text className="text-2xl mt-3" style={{fontFamily:'regular', color:Color.Putih}}>{textInput.username}</Text>
                 </View>
                 <View>
                     <View className="flex-row items-center gap-3 mt-3">
                         <Email stroke={Color.Putih}/>
-                        <Text className="text-base " style={{fontFamily:'semibold', color:Color.Putih}}>{route.params.bio === null ? "bio belum di isi" : route.params.bio}</Text>
+                        <Text className="text-lg " style={{fontFamily:'semibold', color:Color.Putih}}>{textInput.bio}</Text>
                     </View>
                     <View className="flex-row items-center gap-3 mt-3">
                         <Phone stroke={Color.Putih}/>
-                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>{bio.phoneNumber}</Text>
+                        <Text className="text-lg " style={{fontFamily:'semibold', color:Color.Putih}}>{textInput.phoneNumber}</Text>
                     </View>
                     <View className="flex-row items-center gap-3 mt-3">
                         <Alamat stroke={Color.Putih}/>
-                        <Text className="text-xl " style={{fontFamily:'semibold', color:Color.Putih}}>{bio.alamat}</Text>
+                        <Text className="text-lg " style={{fontFamily:'semibold', color:Color.Putih}}>{textInput.alamat}</Text>
                     </View>
 
                 </View>
