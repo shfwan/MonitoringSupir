@@ -1,16 +1,13 @@
-import { View, Text, ActivityIndicator, FlatList } from 'react-native'
-import React, {useState, useEffect} from 'react'
+import { ActivityIndicator, FlatList } from 'react-native'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Color from './Color'
 import CardList from '../components/CardList'
-import { useFocusEffect } from '@react-navigation/native'
 import CardListUser from '../components/CardListUser'
-import useSWR from 'swr'
+import useSWRNative, {useSWRNativeRevalidate} from '@nandorojo/swr-react-native'
 
 const ApiCard = (prop) => {
-    const [isSupir, setSupir] = useState([])
-    const [loading,setLoading] = useState(false)
     const selectorFilter = useSelector(data => data.filter)
     const selectorSearch = useSelector(data => data.search)
     
@@ -19,22 +16,43 @@ const ApiCard = (prop) => {
         const response = await axios.get(apiUrl + "/api/v1/supir")
         return response.data
     }
+    
+    const {data, isLoading, error, mutate} = useSWRNative('api/v1/supir', fetcher)
+    console.log(isLoading);
+    useSWRNativeRevalidate({
+        mutate,
+        revalidateOnFocus: true,
+        revalidateOnReconnect: true,
+        focusThrottleInterval: 1000,
+    })
 
-    const {data, isLoading, error} = useSWR('api/v1/supir', fetcher)
+    const handleFilterCategories = (data) => {
+        // console.log(data.item);
+        if (selectorFilter === "Kendaraan") {
+            return (<CardList item={data.item}/>)
+        } else if (selectorFilter === "Supir") {
+            return (<CardList item={data.item}/>)
+        } else if (selectorFilter === "User") {
+            return (<CardListUser item={data.item}/>)
+        }
+    }
+    
+    const a = (data) => {
+        return <CardList item={data.item}/>
+    }
 
-    return loading ? <ActivityIndicator color={Color.Hijau}  size={50} animating={loading} /> : (
+    return isLoading ? <ActivityIndicator color={Color.Hijau}  size={50} animating={isLoading} /> : (
         <FlatList
             data={data}
             renderItem={
                 (data) => {
-                    console.log(data.item.name)
+                    // console.log(data.item.name)
                     if (data.item.name.toLowerCase().includes(selectorSearch.toLowerCase())) {
-                        return (<CardListUser item={data.item}/>)
+                        return handleFilterCategories(data)
                     }
 
                     if(selectorSearch === "") {
-                        // return (<CardList item={data.item}/>)
-                        return (<CardListUser item={data.item}/>)
+                        return handleFilterCategories(data)
                     }
                 }
             }

@@ -5,18 +5,16 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import { dataKehadiran } from '../constants/Database'
 import Color from '../constants/Color'
-import { useDispatch } from 'react-redux'
-import { setCountNotif } from '../redux/action'
 
 const NotificationScreens = () => {
 
   return (
     <View className="flex-1 px-4">
       {/* <StatusBar/> */}
-      <SafeAreaView>
+      {/* <SafeAreaView>
         <ScrollView className=" h-fit overflow-y-hidden" showsVerticalScrollIndicator={false}>
           {/* <Vir/> */}
-          <FlatList
+          {/* <FlatList
             data={dataKehadiran}
             renderItem={
               ({item}) => {
@@ -41,8 +39,8 @@ const NotificationScreens = () => {
               }
             }
           />
-        </ScrollView>
-      </SafeAreaView>
+        </ScrollView> */}
+      {/* </SafeAreaView> */} 
     </View>
   )
 }

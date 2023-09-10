@@ -1,4 +1,4 @@
-import { FlatList, View, Text } from 'react-native'
+import { FlatList, View, Text, AppState } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import Color from '../constants/Color'
 import { StatusBar } from 'expo-status-bar'
@@ -20,31 +20,17 @@ const AllDataScreens = () => {
         <SafeAreaView>
           <Search/>
           <Category data={CategoriesAllData}/>
-          <FlatList
-              style={{marginTop: 5}}
-              data= { [] }
-              renderItem={
-                  ({item, index}) => {
-                      console.log(item.name)
-                      if(selectorFilter === "Kendaraan") {
-                        return (
-                          <CardList data={item}/>
-                        )
-                      }
-                          
-                  }
-              }
-          />
         </SafeAreaView>
         <SWRConfig
           value={
             {
               fetcher: (...args) => fetch(...args).then(res => res.json()),
-              suspense: true,
+              
             }
-          }>
+          }
+        >
+          
           <View className="flex-1 justify-center">
-            {/* {filter()} */}
             <ApiCard/>
           </View>
         </SWRConfig>
