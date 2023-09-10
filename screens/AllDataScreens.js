@@ -7,50 +7,49 @@ import { CategoriesAllData } from '../constants/Categories'
 import Category from '../components/Category'
 import Search from '../components/Search'
 import ApiCard from '../constants/ApiCard'
-import { useSelector } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
+import storeState from '../redux/store'
+import axios from 'axios'
+import  { SWRConfig } from 'swr'
 
 const AllDataScreens = () => {
-
-
-  const filter = () => {
-    const selectorFilter = useSelector(data => data.filter)
-    if (selectorFilter === "Kendaraan") {
-      return <ApiCard method="GET" route="/api/v1/supir"/>
-    } else if (selectorFilter === "Supir") {
-      return <ApiCard method="GET" route="/api/v1/supir"/>
-    } else if (selectorFilter === "User") {
-      return <ApiCard method="GET" route="/api/v1/userProfile"/>
-    }
-  }
   return (
-    <View className="flex-1 p-4 h-fit w-fit"style={{backgroundColor:Color.Putih}}>
-      <StatusBar/>
-      <SafeAreaView>
-        <Search/>
-        <Category data={CategoriesAllData}/>
-        <FlatList
-            style={{marginTop: 5}}
-            data= { [] }
-            renderItem={
-                ({item, index}) => {
-                    console.log(item.name)
-                    if(selectorFilter === "Kendaraan") {
-                      return (
-                        <CardList data={item}/>
-                      )
-                    } 
-                  // console.log(item.supir)
-                    // if(item.nama.toLowerCase().includes(selectorSearch.toLowerCase())) {
-                    // }
-                        
-                }
+    <Provider store={storeState}>
+      <View className="flex-1 p-4 h-fit w-fit"style={{backgroundColor:Color.Putih}}>
+        <StatusBar/>
+        <SafeAreaView>
+          <Search/>
+          <Category data={CategoriesAllData}/>
+          <FlatList
+              style={{marginTop: 5}}
+              data= { [] }
+              renderItem={
+                  ({item, index}) => {
+                      console.log(item.name)
+                      if(selectorFilter === "Kendaraan") {
+                        return (
+                          <CardList data={item}/>
+                        )
+                      }
+                          
+                  }
+              }
+          />
+        </SafeAreaView>
+        <SWRConfig
+          value={
+            {
+              fetcher: (...args) => fetch(...args).then(res => res.json()),
+              suspense: true,
             }
-        />
-      </SafeAreaView>
-      <View className="flex-1 justify-center">
-        {filter()}
+          }>
+          <View className="flex-1 justify-center">
+            {/* {filter()} */}
+            <ApiCard/>
+          </View>
+        </SWRConfig>
       </View>
-    </View>
+    </Provider>
   )
 }
 

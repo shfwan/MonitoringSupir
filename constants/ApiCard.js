@@ -6,7 +6,7 @@ import Color from './Color'
 import CardList from '../components/CardList'
 import { useFocusEffect } from '@react-navigation/native'
 import CardListUser from '../components/CardListUser'
-// import { useSWRConfig } from 'swr'
+import useSWR from 'swr'
 
 const ApiCard = (prop) => {
     const [isSupir, setSupir] = useState([])
@@ -20,14 +20,14 @@ const ApiCard = (prop) => {
         return response.data
     }
 
-    // const {data, isLoading, error} = useSWRConfig('api/v1/supir', fetcher)
-    // console.log(data);
+    const {data, isLoading, error} = useSWR('api/v1/supir', fetcher)
 
     return loading ? <ActivityIndicator color={Color.Hijau}  size={50} animating={loading} /> : (
         <FlatList
-            data={isSupir}
+            data={data}
             renderItem={
                 (data) => {
+                    console.log(data.item.name)
                     if (data.item.name.toLowerCase().includes(selectorSearch.toLowerCase())) {
                         return (<CardListUser item={data.item}/>)
                     }

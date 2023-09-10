@@ -10,8 +10,6 @@ import DetailKehadiran from './screens/DetailKehadiran';
 import DetailSupir from './screens/DetailSupir';
 import DetailUser from './screens/DetailUser';
 import DetailKendaraan from './screens/DetailKendaraan';
-import { Provider } from 'react-redux';
-import storeState from './redux/store';
 
 
 
@@ -35,8 +33,6 @@ export default function App() {
     return null;
   }
   return (
-    <Provider store={storeState}>
-      
       <TabContextProvider>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='AppNavigation' screenOptions={{headerShown:false}}>
@@ -50,7 +46,6 @@ export default function App() {
           </Stack.Navigator>
         </NavigationContainer>
       </TabContextProvider>
-    </Provider>
   );
 }
 

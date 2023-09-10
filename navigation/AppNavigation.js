@@ -43,9 +43,9 @@ const screenOptions = {
 
 const AppNavigation = () => {
     const {opened, toggleOpened} = useTabMenu()
-    const selectorNotif = useSelector(item => item.countNotif)
-    const dispatch = useDispatch()
-    dispatch(setCountNotif(dataKehadiran.length))
+    // const selectorNotif = useSelector(item => item.countNotif)
+    // const dispatch = useDispatch()
+    // dispatch(setCountNotif(dataKehadiran.length))
     return (
         <Tab.Navigator screenOptions={screenOptions}>
                 <Tab.Screen name="Home" 
@@ -87,7 +87,6 @@ const AppNavigation = () => {
                 <Tab.Screen name="Notif" 
                     component={NotificationScreens}
                     options={{
-                        tabBarBadge: selectorNotif !== null ? selectorNotif : null,
                         tabBarIcon: ({focused}) => { return <Notif size={24} stroke={focused ? Color.Hijau : Color.AbuAbu} />}
                     }}
                     listeners={{ tabPress: e => opened && e.preventDefault() }}
