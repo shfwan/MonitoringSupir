@@ -24,7 +24,7 @@ const CardListKehadiran = ({data}) => {
                     if(item.tanggal === selectorCalendar) {
                         return (
                             <TouchableOpacity 
-                                className="m-0.5 px-3.5 py-2.5 h-fit rounded mt-4 bg-white"
+                                className="m-0.5 px-3.5 py-2.5 h-fit rounded mt-4 bg-white shadow-sm shadow-gray-300"
                                 onPress={() => {
                                     navigation.navigate("Kehadiran", item)
                                 }} 

@@ -7,6 +7,7 @@ import Edit from '../assets/svg/iconEdit.svg'
 import Delete from '../assets/svg/iconDelete.svg'
 import { useRoute } from '@react-navigation/native'
 import axios from 'axios'
+import { mutate } from 'swr'
 
 
 const DetailSupir = () => {
@@ -26,10 +27,14 @@ const DetailSupir = () => {
     setTextInput(prevState => ({...prevState, [input] : text.nativeEvent.text}))
   }
 
-  const handleOnPressSimpan = () => {
-    axios.patch(apiUrl + "/api/v2/supir/id", textInput)
+  const handleOnPressSimpan = async () => {
+    mutate(apiUrl + "/api/v2/supir/id", textInput)
+
+    await axios.patch(apiUrl + "/api/v2/supir/id", textInput)
     .then((response) => console.log(response.data))
     .catch((err) => console.log(err))
+
+    mutate(apiUrl + "/api/v1/supir")
   }
 
 

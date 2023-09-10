@@ -32,7 +32,7 @@ const Kalender = (props) => {
     const [showModal, setModal] = useState(false)
 
     return (
-        <View className="items-center" style={{display: props.display}}>
+        <View className="items-center shadow-sm shadow-gray" style={{display: props.display}}>
             <TouchableOpacity className="bg-white p-2 rounded-md " style={{elevation: 5}}>
                 <View className ="flex-row items-center gap-x-2">
                     <IconCalendar/>

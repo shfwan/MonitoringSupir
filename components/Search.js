@@ -10,7 +10,7 @@ const Search = () => {
     const dispatch = useDispatch()
     return (
         <View 
-            className="flex-row items-center rounded-full p-1"
+            className="flex-row items-center rounded-full p-1 shadow-sm shadow-gray-600"
             style={{backgroundColor:Color.Putih, elevation: 3}} >
             <TextInput 
                 className="p-2 flex-1 ml-2 text-gray-600"

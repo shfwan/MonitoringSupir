@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 const ButtonBack = () => {
     const navigation = useNavigation()
     return (
-        <TouchableOpacity className="px-4 py-2 rounded-xl bg-white " style={{elevation: 3}} onPress={() => { navigation.goBack() }} activeOpacity={1} >
+        <TouchableOpacity className="px-4 py-2 rounded-xl bg-white shadow-sm shadow-gray-600" style={{elevation: 3}} onPress={() => { navigation.goBack() }} activeOpacity={1} >
             <ArrowLeft stroke={Color.Hijau}/>
         </TouchableOpacity>
     )
