@@ -7,6 +7,7 @@ import Edit from '../assets/svg/iconEdit.svg'
 import Delete from '../assets/svg/iconDelete.svg'
 import { useRoute } from '@react-navigation/native'
 import axios from 'axios'
+import { useNavigation } from '@react-navigation/native'
 
 const DetailSupir = () => {
   const apiUrl = "https://monitoring-api-vert.vercel.app"
@@ -30,6 +31,19 @@ const DetailSupir = () => {
     .then((response) => console.log(response.data))
     .catch((err) => console.log(err))
   }
+  
+  const id = {
+    id: route.params.id
+  }
+  const navigation = useNavigation()
+  const handleOnPressRemove = async () => {
+    await axios.delete(apiUrl + "/api/v2/supir/id", {data: id})
+    .then((response) => {
+      console.log(response.data)
+      navigation.goBack()
+    })
+    .catch((err) => console.log(err))
+  }
 
   const imageNull = route.params.user !== null ? {uri: `https://monitoring-api-vert.vercel.app${route.params.user.userProfile.foto}`} : require('../assets/images/no-image.jpg')
 
@@ -41,8 +55,8 @@ const DetailSupir = () => {
         <View className="flex-1 flex-row justify-end ">
           <View className="flex-row w-full justify-end gap-x-3">
             <TouchableOpacity
-                className="rounded-xl"
-                style={{borderColor:Color.Hijau, borderWidth:1, height:45, width:45, alignItems:'center', justifyContent:'center'}}
+                className="rounded-xl border px-3 py-2.5 items-center justify-center"
+                style={{borderColor:Color.Hijau}}
                 onPress={() => {
                   setEdit(true)
                   setShow(true)
@@ -50,8 +64,9 @@ const DetailSupir = () => {
                 <Edit/>
             </TouchableOpacity>
             <TouchableOpacity
-              className="rounded-xl"
-              style={{borderColor:Color.Merah, borderWidth:1, height:45, width:45, alignItems:'center', justifyContent:'center'}}
+              className="rounded-xl border px-3 py-2.5 items-center justify-center"
+              style={{borderColor:Color.Merah}}
+              onPress= {() => handleOnPressRemove()}
               >
                 <Delete/>
             </TouchableOpacity>
@@ -96,7 +111,7 @@ const DetailSupir = () => {
                 keyboardType='number-pad'
                 maxLength={12}
                 onChange={text => handleTextInput(text, "phoneNumber")}
-                />
+              />
             </View>
           </View>
           <View className="flex-col mb-6">

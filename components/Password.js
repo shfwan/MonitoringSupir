@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, Modal, TextInput } from 'react-native'
 import React, {useState} from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import Lock from '../assets/svg/iconLock.svg'
 import Color from '../constants/Color'
 import Key from '../assets/svg/iconKey.svg'
@@ -12,70 +11,78 @@ const Password = () => {
     const [isPassword, setPassword] = useState(false)
     const [isShown, setShown] = useState(true)
     const [isConfirm, setConfirm] = useState(true)
-  return (
-    <>
-    <TouchableOpacity className="flex-row justify-between p-3 gap-2 items-center"
-    onPress={() => setPassword(true)}
-    >
-    <Text className='text-base' style={{fontFamily:'semibold'}}>Ubah Password</Text>
-    <Lock/>
-    </TouchableOpacity>
-    <Modal transparent visible={isPassword}>
-        <View className="flex-1 items-center justify-center" style={{backgroundColor:'#00000099'}}>
-            <View className="w-72 h-fit items-center justify-center bg-white flex-col p-4 rounded-2xl">
-                <View className="m-5">
-                    <Text className="text-xl" style={{fontFamily: 'bold'}} >Ubah Password</Text>
-                </View>
-                <View className="flex-row mb-5 p-2 mx-3 border rounded-md items-center" style={{borderColor:Color.AbuAbu}}>
-                    <Key/>
-                    <TextInput
-                    className="text-base ml-3 w-60"
-                    placeholder='Create Password'
-                    placeholderTextColor={Color.AbuAbu}
-                    style={{fontFamily:'regular', width:'100%', color:Color.Hitam}}
-                    secureTextEntry={isShown}
-                    />
-                    <TouchableOpacity
-                    onPress={()=> setShown(!isShown)}
-                    className="absolute right-3 my-4"
-                    >{isShown ? (<EyeSlash/>) : (<Eye/>)}
-                    </TouchableOpacity>
-                </View>
-
-                <View className="flex-row mb-5 p-2 mx-3 border rounded-md items-center" style={{borderColor:Color.AbuAbu}}>
-                    <Key/>
-                    <TextInput
-                    className="text-base ml-3 w-60"
-                    placeholder='Confirm Password'
-                    placeholderTextColor={Color.AbuAbu}
-                    style={{fontFamily:'regular', width:'100%', color:Color.Hitam}}
-                    secureTextEntry={isConfirm}
-                    />
-                    <TouchableOpacity
-                    onPress={()=> setConfirm(!isConfirm)}
-                    className="absolute right-3 my-4"
-                    >{isConfirm ? (<EyeSlash/>) : (<Eye/>)}
-                    </TouchableOpacity>
-                </View>
-
-                <View className="flex-row">
-                    <TouchableOpacity className="mx-2 p-2 rounded-md" style={{backgroundColor: Color.Hijau}}>
-                        <View className="w-24 ">
-                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Simpan</Text>
+    return (
+        <>
+            <TouchableOpacity className="flex-row justify-between p-3 gap-2 items-center" onPress={() => setPassword(true)}>
+                <Text className='text-base' style={{fontFamily:'semibold'}}>Ubah Password</Text>
+                <Lock/>
+            </TouchableOpacity>
+            <Modal transparent visible={isPassword}>
+                <View className="flex-1 justify-center" style={{backgroundColor:'#00000099'}}>
+                    <View className="items-center">
+                        <View className="w-fit h-fit items-center  justify-center bg-white flex-col p-5 rounded-2xl">
+                            <View className="gap-y-4 items-center">
+                                <Text className="text-xl" style={{fontFamily: 'bold'}}>Ubah Password</Text>
+                                <View className="flex-row w-72 p-2 border rounded-md justify-between" style={{borderColor:Color.AbuAbu}}>
+                                    <View className="mr-2">
+                                        <Key/>
+                                    </View>
+                                    <View className="flex-1">
+                                        <TextInput
+                                            className="text-base text-black "
+                                            placeholder='Create Password'
+                                            placeholderTextColor={Color.AbuAbu}
+                                            style={{fontFamily:'regular'}}
+                                            secureTextEntry={isShown}
+                                        />
+                                    </View>
+                                    <View className="ml-3">
+                                        <TouchableOpacity
+                                            onPress={()=> setShown(!isShown)}
+                                            >{isShown ? (<EyeSlash/>) : (<Eye/>)}
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View className="flex-row w-72 p-2 border rounded-md justify-between" style={{borderColor:Color.AbuAbu}}>
+                                    <View className="mr-3">
+                                        <Key/>
+                                    </View>
+                                    <View className="flex-1">
+                                        <TextInput
+                                            className="text-base text-black"
+                                            placeholder='Confirm Password'
+                                            placeholderTextColor={Color.AbuAbu}
+                                            style={{fontFamily:'regular'}}
+                                            secureTextEntry={isConfirm}
+                                        />
+                                    </View>
+                                    <View className="ml-3">
+                                        <TouchableOpacity
+                                            onPress={()=> setConfirm(!isConfirm)}
+                                        >{isConfirm ? (<EyeSlash/>) : (<Eye/>)}
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View className="flex-row gap-x-2">
+                                    <TouchableOpacity className="p-2 rounded-md" style={{backgroundColor: Color.Hijau}}>
+                                        <View className="w-24 ">
+                                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Simpan</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity className="p-2 rounded-md" style={{backgroundColor: Color.Hijau}} onPress={() => setPassword(false)}>
+                                        <View className="w-24">
+                                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Tidak</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                    
+                                </View>
+                            </View>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity className="mx-2 p-2 rounded-md" style={{backgroundColor: Color.Hijau}} onPress={() => setPassword(false)}>
-                        <View className="w-24">
-                            <Text className="text-white text-center" style={{fontFamily: 'semibold'}}>Tidak</Text>
-                        </View>
-                    </TouchableOpacity>
-                    
+                    </View>
                 </View>
-            </View>
-        </View>
-    </Modal>
-    </>
-  )
+            </Modal>
+        </>
+    )
 }
 
 export default Password

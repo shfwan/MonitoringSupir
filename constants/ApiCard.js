@@ -22,7 +22,7 @@ const ApiCard = (prop) => {
         mutate,
         revalidateOnFocus: true,
         revalidateOnReconnect: true,
-        focusThrottleInterval: 1000,
+        focusThrottleInterval: 500,
     })
 
     const handleFilterCategories = (data) => {
@@ -40,7 +40,6 @@ const ApiCard = (prop) => {
             data={data}
             renderItem={
                 (data) => {
-                    // console.log(data.item.name)
                     if (data.item.name.toLowerCase().includes(selectorSearch.toLowerCase())) {
                         return handleFilterCategories(data)
                     }

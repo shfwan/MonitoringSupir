@@ -5,7 +5,6 @@ import { useState } from "react"
 import { imageData } from "../constants/Data"
 import * as ImagePicker from 'expo-image-picker'
 import Camera from '../assets/svg/iconCamera.svg'
-import { DataSupir } from "../constants/Database"
 import { useNavigation } from "@react-navigation/native"
 import ButtonBack from "../components/ButtonBack"
 import axios from "axios"
@@ -40,7 +39,10 @@ export const AddSupir = () => {
     
     const handleOnPressSimpan = () => {
         axios.post(apiUrl + "/api/v2/supir", textInput)
-        .then((response) => console.log(response.data))
+        .then((response) => {
+            console.log(response.data)
+            navigation.goBack()
+        })
         .catch((err) => console.log(err))
     }
     
