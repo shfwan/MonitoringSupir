@@ -54,7 +54,7 @@ const AllDataScreens = () => {
       <SafeAreaView>
         <Search/>
         <Category data={CategoriesAllData}/>
-        <FlatList
+        {/* <FlatList
             style={{marginTop: 5}}
             data= { apiData.filter(item => item.category === selectorFilter) }
             renderItem={
@@ -78,7 +78,7 @@ const AllDataScreens = () => {
                         
                 }
             }
-        />
+        /> */}
       </SafeAreaView>
     </View>
   )

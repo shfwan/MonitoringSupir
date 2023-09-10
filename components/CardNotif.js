@@ -17,7 +17,7 @@ const CardNotif = (props) => {
 
   return (
     <TouchableOpacity 
-      className="mx-0.5 my-1 p-3.5 rounded-md justify-center" 
+      className="mx-0.5 my-1 p-3.5 rounded-md justify-center shadow-sm shadow-gray-600" 
       style={{backgroundColor: isClick ? Color.Hijau : Color.Putih, elevation: 3}}
       onPress={() => {
         navigation.navigate('Kehadiran', [])

@@ -9,6 +9,7 @@ import  Modal  from "react-native-modal"
 import Car from '../assets/svg/iconCar.svg'
 import { style } from "../theme/Index.Theme"
 import Right from '../assets/svg/iconArrowRight.svg'
+import ButtonMenu from "../components/ButtonMenu"
 
 const HomeScreens = () => {
   return (
@@ -16,31 +17,26 @@ const HomeScreens = () => {
       <MapView
       initialRegion={{"latitude": -3.6986581592589007, "latitudeDelta": 0.0002787032991031779, "longitude": 128.18019339814782, "longitudeDelta": 0.0004462525248527527}}
       style={{width:Dimensions.get('window').width, height:Dimensions.get('window').height}}></MapView>
-        <TouchableOpacity className="ml-5 mt-10 absolute w-12 h-12 rounded-xl items-center justify-center" style={{backgroundColor:Color.Putih, elevation:3 }} >
-          <Menu className="items-center justify-center"/>
-        </TouchableOpacity>
-        <View className="absolute bottom-0 flex-end h-96 w-full" style={{backgroundColor:Color.Putih, elevation:4, borderTopLeftRadius:45, borderTopRightRadius:45}}>
-          <View className="justify-center mx-36 p-1 rounded-xl items-center mt-3 " style={{backgroundColor:'#09A3BE33', borderColor:"#09A3BE"}}>
+        <ButtonMenu/>
+        <View className="absolute bottom-0 flex-end h-96 w-full " style={{backgroundColor:Color.Putih, elevation:4, borderTopLeftRadius:45, borderTopRightRadius:45}}>
+          <View className="justify-center mx-36 p-1 rounded-xl items-center mt-3  " style={{backgroundColor:'#09A3BE33', borderColor:"#09A3BE"}}>
             <Car stroke={Color.Hijau}/>
           </View>
-          <Text className="ml-5 py-2 text-2xl" style={{color:Color.Hitam, fontFamily:'semibold'}}>Kendaraan</Text>
-          <ScrollView
-          className="mb-20"
-          showsVerticalScrollIndicator={false}
-          >
-          <TouchableOpacity className="flex-row mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
-            <Image source={require('../assets/images/Kendaraan/Mobil1.jpeg')}
-            style={{height:65, width:65}}
-            className="rounded-full"
-            />
-            <View className="flex-col ">
-              <Text className="text-xl" style={{color:Color.Hijau, fontFamily:'semibold'}}>Avanza</Text>
-              <Text className="text-base" style={{color:Color.AbuAbu, fontFamily:'semibold'}}>DE 1234 XX</Text>
-            </View>
-            <Right/>
-          </TouchableOpacity>
+          {/* <Text className="ml-5 py-2 text-2xl" style={{color:Color.Hitam, fontFamily:'semibold'}}>Kendaraan</Text> */}
+          <ScrollView className="" showsVerticalScrollIndicator={false} >
+            <TouchableOpacity className="shadow-sm shadow-gray-500 flex-row mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih}}>
+              <Image source={require('../assets/images/Kendaraan/Mobil1.jpeg')}
+              style={{height:65, width:65}}
+              className="rounded-full"
+              />
+              <View className="flex-col ">
+                <Text className="text-xl" style={{color:Color.Hijau, fontFamily:'semibold'}}>Avanza</Text>
+                <Text className="text-base" style={{color:Color.AbuAbu, fontFamily:'semibold'}}>DE 1234 XX</Text>
+              </View>
+              <Right/>
+            </TouchableOpacity>
 
-          <TouchableOpacity className="flex-row my-5 mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
+          <TouchableOpacity className="shadow-sm shadow-gray-500 flex-row my-5 mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
             <Image source={require('../assets/images/Kendaraan/Mobil2.jpeg')}
             style={{height:65, width:65}}
             className="rounded-full"
@@ -52,7 +48,7 @@ const HomeScreens = () => {
             <Right/>
           </TouchableOpacity>
 
-          <TouchableOpacity className="flex-row mb-5 mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
+          <TouchableOpacity className="shadow-sm shadow-gray-500 flex-row mb-5 mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
             <Image source={require('../assets/images/Kendaraan/Mobil3.jpeg')}
             style={{height:65, width:65}}
             className="rounded-full"
@@ -63,6 +59,18 @@ const HomeScreens = () => {
             </View>
               <Right/>
           </TouchableOpacity>
+
+          <TouchableOpacity className="shadow-sm shadow-gray-500 flex-row mx-5 items-center p-2 rounded-lg justify-between" style={{backgroundColor:Color.Putih, elevation:2}}>
+              <Image source={require('../assets/images/Kendaraan/Mobil1.jpeg')}
+              style={{height:65, width:65}}
+              className="rounded-full"
+              />
+              <View className="flex-col ">
+                <Text className="text-xl" style={{color:Color.Hijau, fontFamily:'semibold'}}>Avanza</Text>
+                <Text className="text-base" style={{color:Color.AbuAbu, fontFamily:'semibold'}}>DE 1234 XX</Text>
+              </View>
+              <Right/>
+            </TouchableOpacity>
           </ScrollView>
         </View>
 
